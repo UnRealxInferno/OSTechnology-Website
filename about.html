@@ -19,6 +19,8 @@
   <meta name="twitter:title" content="About Us | The Story Behind Unreal Tech" />
   <meta name="twitter:description" content="Founded to offer honest, people-first IT support after seeing MSPs overcharge, underdeliver and treat their engineers poorly." />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Schema.org JSON-LD -->
@@ -53,7 +55,7 @@
   <header class="site-header" id="top">
     <nav class="navbar" aria-label="Main navigation">
       <a class="logo" href="index.html">
-        <span class="logo-icon">&#9881;</span>
+        <div class="logo-mark" aria-hidden="true">UT</div>
         <span>Unreal<strong>Tech</strong></span>
       </a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
@@ -95,7 +97,7 @@
         <div class="about-story-layout">
 
           <div class="about-story-visual" aria-hidden="true">
-            <div class="about-glyph">&#9881;</div>
+            <div class="about-glyph">UT</div>
           </div>
 
           <div class="about-story-body">
@@ -132,37 +134,37 @@
         <div class="included-grid">
 
           <div class="included-item">
-            <span class="included-icon" aria-hidden="true">&#128101;</span>
+            <span class="included-icon" aria-hidden="true"><i data-lucide="users"></i></span>
             <h3>People First</h3>
             <p>We remember there's a person on the other end of every ticket, a home user worried about losing their photos, a business owner stressed about downtime. That matters to us.</p>
           </div>
 
           <div class="included-item">
-            <span class="included-icon" aria-hidden="true">&#128269;</span>
+            <span class="included-icon" aria-hidden="true"><i data-lucide="search"></i></span>
             <h3>Radical Honesty</h3>
             <p>If it can't be fixed, we'll say so. If it doesn't need fixing, we'll tell you that too. No inflated quotes, no invented problems, no fear-based upselling.</p>
           </div>
 
           <div class="included-item">
-            <span class="included-icon" aria-hidden="true">&#128176;</span>
+            <span class="included-icon" aria-hidden="true"><i data-lucide="receipt"></i></span>
             <h3>Fair Pricing</h3>
             <p>Managed IT doesn't have to come with a premium-brand price tag. We charge fairly, explain every cost upfront and never add surprise charges after the fact.</p>
           </div>
 
           <div class="included-item">
-            <span class="included-icon" aria-hidden="true">&#127941;</span>
+            <span class="included-icon" aria-hidden="true"><i data-lucide="badge-check"></i></span>
             <h3>Engineer Respect</h3>
             <p>Great customer experiences start with well-supported engineers. We invest in our team's training, wellbeing and development, because burnt-out engineers don't do great work. As an official <strong>Google Partner</strong>, we hold ourselves to the highest certification standards.</p>
           </div>
 
           <div class="included-item">
-            <span class="included-icon" aria-hidden="true">&#9989;</span>
+            <span class="included-icon" aria-hidden="true"><i data-lucide="check-circle"></i></span>
             <h3>Fix It Right</h3>
             <p>We don't patch and hope. We diagnose properly, fix thoroughly and explain what we did, so the problem doesn't come back next month.</p>
           </div>
 
           <div class="included-item">
-            <span class="included-icon" aria-hidden="true">&#128274;</span>
+            <span class="included-icon" aria-hidden="true"><i data-lucide="shield"></i></span>
             <h3>Security Built In</h3>
             <p>Every service we deliver has security thinking baked in from the start, not bolted on at the end when something's already gone wrong.</p>
           </div>
@@ -178,7 +180,7 @@
         <p>Book a free, no-pressure consultation. No sales scripts: just an honest conversation about what you need.</p>
         <div class="cta-band-actions">
           <a href="index.html#contact" class="btn btn-primary">Book a Free Consultation</a>
-          <a href="index.html#contact" class="btn btn-outline">&#128222; +44 (0)1234 567 890</a>
+          <a href="index.html#contact" class="btn btn-outline"><i data-lucide="phone"></i> +44 (0)1234 567 890</a>
         </div>
       </div>
     </section>
@@ -190,7 +192,7 @@
     <div class="container footer-layout">
       <div class="footer-brand">
         <a class="logo" href="index.html">
-          <span class="logo-icon" aria-hidden="true">&#9881;</span>
+          <div class="logo-mark" aria-hidden="true">UT</div>
           <span>Unreal<strong>Tech</strong></span>
         </a>
         <p>Expert IT support, web presence &amp; hosting, and cybersecurity for home users and small businesses.</p>
@@ -210,7 +212,9 @@
     </div>
   </footer>
 
-  <a href="#top" class="back-to-top" aria-label="Back to top">&#8679;</a>
+  <a href="#top" class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></a>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>lucide.createIcons();</script>
   <script src="script.js"></script>
 </body>
 </html>
