@@ -1177,6 +1177,10 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
   gap: 4rem;
   align-items: start;
 }
+/* When the visual sidebar is absent, let the body fill the full width */
+.about-story-body:only-child {
+  grid-column: 1 / -1;
+}
 .about-story-visual {
   position: sticky;
   top: calc(var(--nav-height) + 2rem);
