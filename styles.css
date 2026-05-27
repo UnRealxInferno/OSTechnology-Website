@@ -400,6 +400,13 @@ button { font-family: inherit; cursor: pointer; }
   background: #fbbc04;
   color: #1a1a1a;
 }
+.service-card.featured.featured-microsoft {
+  border-color: rgba(0, 120, 212, 0.35);
+}
+.service-badge.badge-microsoft {
+  background: #0078d4;
+  color: #ffffff;
+}
 .service-icon {
   display: flex;
   align-items: center;
@@ -1193,6 +1200,121 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
 .about-story-body .btn { margin-top: 0.75rem; }
 
 /* ============================================================
+   PLATFORM COMPARISON
+   ============================================================ */
+.compare { background: var(--clr-surface); }
+
+/* "What's right for my business?" summary cards */
+.compare-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.compare-card {
+  position: relative;
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+}
+.compare-card.compare-card-google { border-top: 3px solid #fbbc04; }
+.compare-card.compare-card-microsoft { border-top: 3px solid #0078d4; }
+.compare-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.35rem;
+}
+.compare-card-head h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  letter-spacing: -0.01em;
+}
+.compare-card-best {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--clr-accent);
+  margin-bottom: 1.1rem;
+}
+.compare-card ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.compare-card ul li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 0.92rem;
+  color: var(--clr-text-muted);
+  line-height: 1.55;
+}
+.compare-card ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+}
+.compare-card strong { color: var(--clr-text); font-weight: 600; }
+
+/* Feature comparison table */
+.compare-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+}
+.compare-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  padding: 0.95rem 1.25rem;
+  border-bottom: 1px solid var(--clr-border);
+  vertical-align: top;
+}
+.compare-table tbody tr:last-child td { border-bottom: 0; }
+.compare-table thead th {
+  background: var(--clr-surface2);
+  color: var(--clr-white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.compare-table thead th .compare-th-sub {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--clr-text-muted);
+  margin-top: 0.15rem;
+}
+.compare-table tbody th {
+  font-weight: 600;
+  color: var(--clr-text);
+  white-space: nowrap;
+}
+.compare-table td { color: var(--clr-text-muted); }
+.compare-table tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
+.compare-col-google { border-left: 3px solid rgba(251, 188, 4, 0.5); }
+.compare-col-microsoft { border-left: 3px solid rgba(0, 120, 212, 0.6); }
+.compare-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  margin-top: 1.75rem;
+}
+.compare-note a { font-weight: 600; }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
@@ -1208,6 +1330,7 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .about-story-layout { grid-template-columns: 1fr; }
   .about-story-visual { display: none; }
+  .compare-cards { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
