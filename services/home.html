@@ -21,7 +21,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -77,7 +84,7 @@
           {
             "@type": "Question",
             "name": "How much does home IT support cost?",
-            "acceptedAnswer": { "@type": "Answer", "text": "We offer two options. Pay As You Go: £25 call-out fee plus £40 per hour, with no contract or commitment. Monthly Support: £16.99 per month (6-month minimum) covers rolling remote support and optional cybersecurity for one user's devices, for example a laptop and phone. No hidden fees. Businesses should contact us for a tailored quote." }
+            "acceptedAnswer": { "@type": "Answer", "text": "We keep it simple with two plans. Personal: £12.99 per month covers one computer, with round-the-clock monitoring, automatic updates, business-grade antivirus and 1 hour of remote help each month. Family: £19.99 per month covers up to 3 computers with all the same protection, and you can add extra computers for £5 per month each. There is a £10 one-off setup per device and a 6-month minimum. All prices exclude VAT. Businesses should contact us for a tailored quote." }
           }
         ]
       }
@@ -338,7 +345,7 @@
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                We offer two options. <strong>Pay As You Go</strong>: £25 call-out fee plus £40 per hour, with no contract or commitment. <strong>Monthly Support</strong>: £16.99 per month (6-month minimum) covers rolling remote support and optional cybersecurity for one user's devices, for example a laptop and phone. No hidden fees, no surprises.
+                We keep it simple with two plans. <strong>Personal</strong>: £12.99 per month covers one computer, with round-the-clock monitoring, automatic updates, business-grade antivirus and 1 hour of remote help each month. <strong>Family</strong>: £19.99 per month covers up to 3 computers with all the same protection, and you can add extra computers for £5 per month each. There's a £10 one-off setup per device and a 6-month minimum. All prices exclude VAT.
               </div>
             </div>
           </div>
@@ -358,46 +365,47 @@
         <div class="pricing-grid">
 
           <div class="pricing-card">
-            <span class="pricing-badge">Flexible</span>
-            <p class="pricing-name">Pay As You Go</p>
+            <span class="pricing-badge">For One Person</span>
+            <p class="pricing-name">Personal</p>
             <div class="pricing-price">
-              <span class="pricing-amount">£25</span>
-              <span class="pricing-period">call-out fee</span>
-            </div>
-            <div class="pricing-price" style="margin-top:-0.25rem">
-              <span class="pricing-amount" style="font-size:1.75rem">£40</span>
-              <span class="pricing-period">/hour after that</span>
-            </div>
-            <p class="pricing-subtext">No contract, no commitment. Pay only when you need us.</p>
-            <ul class="pricing-features">
-              <li>Remote IT support on demand</li>
-              <li>Device troubleshooting &amp; fixes</li>
-              <li>Virus &amp; malware removal</li>
-              <li>Software installation &amp; updates</li>
-              <li>New device setup (additional hour rate)</li>
-            </ul>
-            <a href="#contact" class="btn btn-outline">Book a Session</a>
-          </div>
-
-          <div class="pricing-card pricing-featured">
-            <span class="pricing-badge">Best Value</span>
-            <p class="pricing-name">Monthly Support</p>
-            <div class="pricing-price">
-              <span class="pricing-amount">£16.99</span>
+              <span class="pricing-amount">£12.99</span>
               <span class="pricing-period">/month</span>
             </div>
-            <p class="pricing-subtext">6-month minimum, rolling monthly thereafter. Covers 1 user's devices (e.g. laptop + phone).</p>
+            <p class="pricing-subtext">Everything one computer needs to stay healthy, protected and looked after.</p>
             <ul class="pricing-features">
-              <li>Unlimited remote IT support</li>
-              <li>Device troubleshooting &amp; fixes</li>
-              <li>Software installation &amp; updates</li>
-              <li>Optional cybersecurity add-on</li>
-              <li>Priority response during business hours</li>
+              <li>One computer kept healthy &amp; protected</li>
+              <li>Round-the-clock monitoring, so we spot problems before you do</li>
+              <li>Automatic security updates &amp; patching</li>
+              <li>Built-in business-grade antivirus</li>
+              <li>1 hour of remote help included every month</li>
+              <li>Extra help at the discounted plan rate (£25/hr)</li>
             </ul>
-            <a href="#contact" class="btn btn-primary">Get Started</a>
-            <p class="pricing-note">Business customers: <a href="#contact">contact us</a> for a tailored quote.</p>
+            <a href="#contact" class="btn btn-outline">Get Started</a>
           </div>
 
+          <div class="pricing-card pricing-card--featured">
+            <span class="pricing-badge">Best Value</span>
+            <p class="pricing-name">Family</p>
+            <div class="pricing-price">
+              <span class="pricing-amount">£19.99</span>
+              <span class="pricing-period">/month</span>
+            </div>
+            <p class="pricing-subtext">The same complete care, shared across the whole household's computers.</p>
+            <ul class="pricing-features">
+              <li>Everything in Personal, across up to 3 computers</li>
+              <li>Same monitoring, updates &amp; antivirus on every device</li>
+              <li>1 hour of remote help included every month</li>
+              <li>Add more computers any time for just £5/month each</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Get Started</a>
+          </div>
+
+        </div>
+
+        <div class="pricing-terms">
+          <p>£10 one-off setup per device. First month paid upfront. 6-month minimum, then rolling &mdash; just 30 days' notice to cancel.</p>
+          <p>Need a hand beyond your included hour? Plan customers pay £25/hr; one-off, pay-as-you-go help is £50/hr.</p>
+          <p>All prices exclude VAT.</p>
         </div>
       </div>
     </section>
@@ -406,7 +414,7 @@
     <section class="cta-band" aria-labelledby="cta-heading">
       <div class="container">
         <h2 id="cta-heading">Ready to Get Your Home Tech Sorted?</h2>
-        <p>Plans from £16.99/month, or pay as you go from £25. No jargon, no hidden fees.</p>
+        <p>Plans from just £12.99/month. No jargon, no hidden fees.</p>
         <div class="cta-band-actions">
           <a href="#pricing" class="btn btn-primary">See Pricing</a>
           <a href="#contact" class="btn btn-outline">Get in Touch</a>

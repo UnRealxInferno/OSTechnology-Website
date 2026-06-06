@@ -1,0 +1,153 @@
+/* ============================================================
+   OS Technology – Layout: Container, Navigation, Footer, Sections
+   ============================================================ */
+
+/* ---------- Utility ---------- */
+.container {
+  width: min(1160px, 92%);
+  margin-inline: auto;
+}
+.accent { color: var(--clr-accent); }
+
+/* ---------- Section Helpers ---------- */
+.section { padding-block: 96px; }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-kicker {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clr-text-muted);
+  margin-bottom: 0.75rem;
+}
+.section-header h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: var(--clr-white);
+  letter-spacing: -0.03em;
+}
+.section-intro {
+  font-size: 1rem;
+  color: var(--clr-text-muted);
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: var(--clr-bg);
+  border-bottom: 1px solid var(--clr-border);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+  width: min(1160px, 92%);
+  margin-inline: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--clr-white);
+  letter-spacing: -0.01em;
+}
+.logo-mark {
+  width: 26px;
+  height: 26px;
+  background: transparent;
+  border: 1.5px solid var(--clr-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--clr-accent);
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  line-height: 1;
+}
+.logo strong { color: var(--clr-accent); font-weight: 700; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+}
+.nav-links a:hover { color: var(--clr-white); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 6px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--clr-text);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--clr-surface);
+  border-top: 1px solid var(--clr-border);
+  padding-block: 48px;
+}
+.footer-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+.footer-brand p {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--clr-text-muted);
+  max-width: 280px;
+}
+.footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer-nav a {
+  font-size: 0.875rem;
+  color: var(--clr-text-muted);
+}
+.footer-nav a:hover { color: var(--clr-accent); }
+.footer-legal {
+  text-align: right;
+}
+.footer-legal p {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  margin-bottom: 0.35rem;
+}
+.footer-legal a { color: var(--clr-text-muted); font-size: 0.8rem; }
+.footer-legal a:hover { color: var(--clr-accent); }
