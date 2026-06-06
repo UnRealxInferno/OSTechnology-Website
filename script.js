@@ -14,12 +14,12 @@
   const navLinks  = document.getElementById('nav-links');
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
+      const open = navLinks.classList.toggle('nav-links--open');
       navToggle.setAttribute('aria-expanded', String(open));
     });
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
+        navLinks.classList.remove('nav-links--open');
         navToggle.setAttribute('aria-expanded', 'false');
       });
     });
@@ -29,7 +29,7 @@
   const btt = document.querySelector('.back-to-top');
   if (btt) {
     window.addEventListener('scroll', () => {
-      btt.classList.toggle('visible', window.scrollY > 400);
+      btt.classList.toggle('back-to-top--visible', window.scrollY > 400);
     }, { passive: true });
   }
 
@@ -37,7 +37,7 @@
   const siteHeader = document.querySelector('.site-header');
   if (siteHeader) {
     window.addEventListener('scroll', () => {
-      siteHeader.classList.toggle('scrolled', window.scrollY > 8);
+      siteHeader.classList.toggle('site-header--scrolled', window.scrollY > 8);
     }, { passive: true });
   }
 
@@ -45,13 +45,13 @@
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
       const item   = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => {
-        i.classList.remove('open');
+      const isOpen = item.classList.contains('faq-item--open');
+      document.querySelectorAll('.faq-item--open').forEach(i => {
+        i.classList.remove('faq-item--open');
         i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
       });
       if (!isOpen) {
-        item.classList.add('open');
+        item.classList.add('faq-item--open');
         btn.setAttribute('aria-expanded', 'true');
       }
     });
@@ -68,7 +68,7 @@
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add('reveal--visible');
           io.unobserve(entry.target);
         }
       });
