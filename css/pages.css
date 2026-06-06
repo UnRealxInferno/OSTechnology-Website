@@ -201,6 +201,13 @@
   font-size: 0.8rem;
 }
 .sidebar-cta { width: 100%; justify-content: center; }
+.sidebar-note {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+.sidebar-note a { color: var(--clr-accent); }
 
 .detail-body h2 {
   font-size: clamp(1.25rem, 2.5vw, 1.65rem);
