@@ -14,7 +14,6 @@
   .about-story-layout { grid-template-columns: 1fr; }
   .about-story-visual { display: none; }
   .compare-cards { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {

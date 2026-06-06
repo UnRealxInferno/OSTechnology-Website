@@ -525,115 +525,6 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
 .included-item p { grid-column: 2; font-size: 0.875rem; color: var(--clr-text-muted); line-height: 1.55; }
 
 /* ============================================================
-   PRICING
-   ============================================================ */
-.pricing { background: var(--clr-bg); }
-.pricing-group-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--clr-text-muted);
-  margin-bottom: 1rem;
-}
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 2.5rem;
-}
-.pricing-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  background: var(--clr-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  transition: border-color var(--transition), transform var(--transition);
-}
-.pricing-card:hover { border-color: rgba(255, 255, 255, 0.3); }
-.pricing-card--featured {
-  border-color: var(--clr-accent);
-  box-shadow: 0 0 0 1px var(--clr-accent), 0 0 24px var(--clr-accent-glow);
-}
-.pricing-card--featured:hover { border-color: var(--clr-accent); }
-.pricing-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--clr-white);
-  background: var(--clr-accent);
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-}
-.pricing-tier {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--clr-white);
-  margin-bottom: 0.5rem;
-}
-.pricing-price {
-  display: flex;
-  align-items: baseline;
-  gap: 0.4rem;
-  margin-bottom: 0.5rem;
-}
-.pricing-amount {
-  font-size: 2.25rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--clr-white);
-}
-.pricing-term { font-size: 0.875rem; color: var(--clr-text-muted); }
-.pricing-summary {
-  font-size: 0.875rem;
-  color: var(--clr-text-muted);
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-}
-.pricing-features {
-  list-style: none;
-  margin: 0;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--clr-border);
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
-.pricing-features li {
-  position: relative;
-  padding-left: 1.5rem;
-  font-size: 0.875rem;
-  color: var(--clr-text);
-  line-height: 1.45;
-}
-.pricing-features li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--clr-accent);
-  font-weight: 700;
-}
-.pricing-grid--compact .pricing-summary { margin-bottom: 0; }
-.pricing-notes {
-  border-top: 1px solid var(--clr-border);
-  padding-top: 1.5rem;
-}
-.pricing-notes p {
-  font-size: 0.8rem;
-  color: var(--clr-text-muted);
-  line-height: 1.55;
-  margin-bottom: 0.5rem;
-}
-.pricing-notes p:last-child { margin-bottom: 0; }
-
-/* ============================================================
    PROCESS STEPS
    ============================================================ */
 .process { background: var(--clr-bg); }
@@ -717,6 +608,13 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
    PRICING
    ============================================================ */
 .pricing { background: var(--clr-surface); }
+.pricing-table-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--clr-white);
+  margin-bottom: 1rem;
+}
+.pricing-table-heading:not(:first-of-type) { margin-top: 2.5rem; }
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
