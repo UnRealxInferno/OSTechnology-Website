@@ -367,6 +367,7 @@
   font-size: 0.95rem;
   white-space: nowrap;
 }
+.compare-table .compare-th-sub,
 .compare-table thead th .compare-th-sub {
   display: block;
   font-size: 0.72rem;

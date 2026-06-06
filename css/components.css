@@ -608,6 +608,13 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
    PRICING
    ============================================================ */
 .pricing { background: var(--clr-surface); }
+.pricing-table-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--clr-white);
+  margin-bottom: 1rem;
+}
+.pricing-table-heading:not(:first-of-type) { margin-top: 2.5rem; }
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
