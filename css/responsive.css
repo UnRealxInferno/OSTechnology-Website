@@ -10,8 +10,6 @@
   .footer-legal { grid-column: 1 / -1; text-align: left; }
   .detail-layout { grid-template-columns: 1fr; }
   .detail-sidebar { position: static; }
-  .included-grid { grid-template-columns: repeat(2, 1fr); }
-  .related-grid { grid-template-columns: repeat(2, 1fr); }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .about-story-layout { grid-template-columns: 1fr; }
   .about-story-visual { display: none; }
@@ -50,8 +48,10 @@
   .footer-layout { grid-template-columns: 1fr; }
   .footer-legal { text-align: left; }
   .about-visual { display: none; }
-  .included-grid { grid-template-columns: 1fr; }
-  .related-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .service-card, .included-item, .related-card { column-gap: 1rem; }
 }
 
 /* --- Respect reduced-motion preference --- */
