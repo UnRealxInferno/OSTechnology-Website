@@ -134,7 +134,7 @@
         <li><a href="../index.html#services">Services</a></li>
         <li><a href="../index.html#why-us">Why Us</a></li>
         <li><a href="../about.html">About</a></li>
-        <li><a href="../index.html#contact" class="btn btn-sm">Get in Touch</a></li>
+        <li><a href="#contact" class="btn btn-sm">Get in Touch</a></li>
       </ul>
     </nav>
   </header>
@@ -156,7 +156,7 @@
         <h1 id="page-heading">Business IT Services</h1>
         <p class="page-hero-intro">Comprehensive IT for growing businesses: from new device provisioning and device support to Microsoft 365, cybersecurity, web presence and fully managed IT support. We handle the tech so you can focus on what you do best.</p>
         <div class="page-hero-actions">
-          <a href="../index.html#contact" class="btn btn-primary">Get in Touch</a>
+          <a href="#contact" class="btn btn-primary">Get in Touch</a>
           <a href="#plans" class="btn btn-outline">See Plans</a>
         </div>
       </div>
@@ -378,7 +378,7 @@
         </div>
 
         <div class="plan-cta">
-          <a href="../index.html#contact" class="btn btn-primary">Get a Tailored Quote</a>
+          <a href="#contact" class="btn btn-primary">Get a Tailored Quote</a>
         </div>
 
         <div class="pricing-terms">
@@ -438,8 +438,114 @@
         <h2 id="cta-heading">Ready to Get Professional IT Support?</h2>
         <p>Get in touch for a free, no-obligation consultation. Real people, real solutions, tailored to your business.</p>
         <div class="cta-band-actions">
-          <a href="../index.html#contact" class="btn btn-primary">Get in Touch</a>
-          <a href="../index.html#contact" class="btn btn-outline"><i data-lucide="phone"></i> 07942 942 662</a>
+          <a href="#contact" class="btn btn-primary">Get in Touch</a>
+          <a href="#contact" class="btn btn-outline"><i data-lucide="phone"></i> 07942 942 662</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT FORM ===== -->
+    <section class="section contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Get in Touch</p>
+          <h2 id="contact-heading">Get a Tailored Quote for Your Business</h2>
+          <p class="section-intro">Tell us about your business IT needs and we'll get back to you within one business day.</p>
+        </div>
+        <div class="contact-layout">
+          <form class="contact-form" id="contact-form" novalidate aria-label="Contact form">
+            <!-- Web3Forms access key -->
+            <input type="hidden" name="access_key" value="2a16637d-d967-4413-9f4f-a87205271ec3" />
+            <!-- Route subject line -->
+            <input type="hidden" name="subject" value="Business IT Enquiry – OS Technology" />
+            <!-- Tell web3forms to return JSON so we can handle in JS -->
+            <input type="hidden" name="redirect" value="false" />
+            <!-- Honeypot: bots fill this; humans leave it empty -->
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <!-- Timing field: set on page load, checked in JS (bots submit instantly) -->
+            <input type="hidden" name="_form_loaded_at" id="_form_loaded_at" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" />
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000" autocomplete="tel" aria-describedby="phone-hint" />
+                <span class="field-hint" id="phone-hint">Optional, include country code if outside UK</span>
+              </div>
+              <div class="form-group">
+                <label for="plan">Plan of Interest</label>
+                <select id="plan" name="plan">
+                  <option value="">Select a plan</option>
+                  <option value="starter">Starter</option>
+                  <option value="bronze">Bronze</option>
+                  <option value="silver">Silver</option>
+                  <option value="gold">Gold</option>
+                  <option value="platinum">Platinum</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Message <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about your business IT needs or what you'd like help with…" required></textarea>
+              <span class="field-error" aria-live="polite"></span>
+            </div>
+
+            <!-- hCaptcha – loaded by web3forms client script -->
+            <div class="h-captcha" data-captcha="true"></div>
+            <span class="field-error" id="captcha-error" aria-live="polite"></span>
+
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            <p class="form-note">We respect your privacy. Your information will never be shared with third parties.</p>
+            <div class="form-success" id="form-success" role="alert" hidden>
+              &#10003; Thanks! We'll be in touch soon.
+            </div>
+            <div class="form-error-msg" id="form-error" role="alert" hidden>
+              &#10007; Something went wrong. Please try again or email us directly.
+            </div>
+          </form>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true"><i data-lucide="activity"></i></span>
+              <div>
+                <strong>Proactive Support</strong>
+                <p>We monitor and fix issues before they affect your business, not just when things break.</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true"><i data-lucide="phone"></i></span>
+              <div>
+                <strong>Call Us</strong>
+                <p><a href="tel:+447942942662">07942 942 662</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true"><i data-lucide="mail"></i></span>
+              <div>
+                <strong>Email Us</strong>
+                <p><a href="mailto:hello@ostechnology.uk">hello@ostechnology.uk</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true"><i data-lucide="clock"></i></span>
+              <div>
+                <strong>Opening Hours</strong>
+                <p>Mon&ndash;Fri: 9:00am &ndash; 5:00pm</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -461,7 +567,7 @@
           <li><a href="../index.html#services">Services</a></li>
           <li><a href="../index.html#why-us">Why Us</a></li>
           <li><a href="../about.html">About</a></li>
-          <li><a href="../index.html#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="footer-legal">
@@ -475,6 +581,7 @@
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script>lucide.createIcons();</script>
+  <script src="https://web3forms.com/client/script.js" async defer></script>
   <script src="../script.js"></script>
 </body>
 </html>
