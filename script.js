@@ -88,6 +88,7 @@
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      e.stopImmediatePropagation();
 
       const submitBtn   = contactForm.querySelector('[type="submit"]');
       const successDiv  = document.getElementById('form-success');

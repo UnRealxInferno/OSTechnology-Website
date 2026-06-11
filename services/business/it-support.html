@@ -390,6 +390,10 @@
             </div>
 
 
+            <!-- hCaptcha – loaded by web3forms client script -->
+            <div class="h-captcha" data-captcha="true"></div>
+            <span class="field-error" id="captcha-error" aria-live="polite"></span>
+
             <button type="submit" class="btn btn-primary btn-full">Send Message</button>
             <p class="form-note">We respect your privacy. Your information will never be shared with third parties.</p>
             <div class="form-success" id="form-success" role="alert" hidden>
@@ -495,6 +499,7 @@
   <a href="#top" class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></a>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script>lucide.createIcons();</script>
+  <script src="https://web3forms.com/client/script.js" async defer></script>
   <script src="../../script.js"></script>
 </body>
 </html>
