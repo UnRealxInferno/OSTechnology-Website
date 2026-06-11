@@ -83,4 +83,41 @@
     });
   }
 
+  /* ---------- Contact form (AJAX via Web3Forms) ---------- */
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const submitBtn   = contactForm.querySelector('[type="submit"]');
+      const successDiv  = document.getElementById('form-success');
+      const errorDiv    = document.getElementById('form-error');
+      const originalTxt = submitBtn ? submitBtn.textContent : '';
+
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+      if (successDiv) successDiv.hidden = true;
+      if (errorDiv)   errorDiv.hidden   = true;
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(contactForm),
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.success) {
+            contactForm.reset();
+            if (successDiv) successDiv.hidden = false;
+          } else {
+            if (errorDiv) errorDiv.hidden = false;
+          }
+        })
+        .catch(function () {
+          if (errorDiv) errorDiv.hidden = false;
+        })
+        .finally(function () {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalTxt; }
+        });
+    });
+  }
+
 })();
