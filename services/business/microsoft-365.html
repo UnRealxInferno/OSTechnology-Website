@@ -363,7 +363,6 @@
             <input type="hidden" name="access_key" value="2a16637d-d967-4413-9f4f-a87205271ec3" />
             <!-- Route subject line -->
             <input type="hidden" name="subject" value="Microsoft 365 Enquiry – OS Technology" />
-            <!-- Tell web3forms to return JSON so we can handle in JS -->
             <input type="hidden" name="redirect" value="false" />
             <!-- Honeypot: bots fill this; humans leave it empty -->
             <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -395,9 +394,6 @@
               <span class="field-error" aria-live="polite"></span>
             </div>
 
-            <!-- hCaptcha – loaded by web3forms client script -->
-            <div class="h-captcha" data-captcha="true"></div>
-            <span class="field-error" id="captcha-error" aria-live="polite"></span>
 
             <button type="submit" class="btn btn-primary btn-full">Send Message</button>
             <p class="form-note">We respect your privacy. Your information will never be shared with third parties.</p>
@@ -504,7 +500,6 @@
   <a href="#top" class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></a>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script>lucide.createIcons();</script>
-  <script src="https://web3forms.com/client/script.js" async defer></script>
   <script src="../../script.js"></script>
 </body>
 </html>
