@@ -53,10 +53,10 @@
    device prefers light and the user hasn't explicitly chosen dark.
    ============================================================ */
 :root[data-theme="light"] {
-  --clr-bg:        #ffffff;
-  --clr-surface:   #f7f7f8;
-  --clr-surface2:  #eef0f2;
-  --clr-border:    #e2e5e9;
+  --clr-bg:        #f4f5f7;
+  --clr-surface:   #ecedf0;
+  --clr-surface2:  #e3e5ea;
+  --clr-border:    #d7dae1;
   --clr-text:      #1f2733;
   --clr-text-muted:#5b6675;
   --clr-white:     #0a0a0a;
@@ -65,7 +65,7 @@
   --clr-overlay-border: rgba(0, 0, 0, 0.18);
   --clr-grid-line:      rgba(0, 0, 0, 0.04);
   --clr-grid-line-soft: rgba(0, 0, 0, 0.035);
-  --clr-header-bg:      rgba(255, 255, 255, 0.92);
+  --clr-header-bg:      rgba(244, 245, 247, 0.9);
   --shadow-lift:        0 16px 48px rgba(0, 0, 0, 0.12);
 
   --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.10);
@@ -74,10 +74,10 @@
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --clr-bg:        #ffffff;
-    --clr-surface:   #f7f7f8;
-    --clr-surface2:  #eef0f2;
-    --clr-border:    #e2e5e9;
+    --clr-bg:        #f4f5f7;
+    --clr-surface:   #ecedf0;
+    --clr-surface2:  #e3e5ea;
+    --clr-border:    #d7dae1;
     --clr-text:      #1f2733;
     --clr-text-muted:#5b6675;
     --clr-white:     #0a0a0a;
@@ -86,7 +86,7 @@
     --clr-overlay-border: rgba(0, 0, 0, 0.18);
     --clr-grid-line:      rgba(0, 0, 0, 0.04);
     --clr-grid-line-soft: rgba(0, 0, 0, 0.035);
-    --clr-header-bg:      rgba(255, 255, 255, 0.92);
+    --clr-header-bg:      rgba(244, 245, 247, 0.9);
     --shadow-lift:        0 16px 48px rgba(0, 0, 0, 0.12);
 
     --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.10);
