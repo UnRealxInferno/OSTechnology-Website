@@ -35,7 +35,7 @@
 
 /* --- Sticky header depth on scroll --- */
 .site-header--scrolled {
-  background: rgba(10, 10, 10, 0.96);
+  background: var(--clr-header-bg);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
 }
@@ -62,7 +62,7 @@
 }
 .logo:hover .logo-mark {
   background: var(--clr-accent);
-  color: #0a0a0a;
+  color: var(--clr-on-accent);
 }
 
 /* --- Buttons --- */
@@ -86,15 +86,15 @@
 .service-card:hover,
 .service-card:focus {
   transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-lift);
 }
 .service-card--featured:hover,
 .service-card--featured:focus {
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35), 0 0 30px rgba(249, 115, 22, 0.12);
+  box-shadow: var(--shadow-lift), 0 0 30px rgba(249, 115, 22, 0.12);
 }
 .service-card--featured-home:hover,
 .service-card--featured-home:focus {
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35), 0 0 30px rgba(34, 197, 94, 0.10);
+  box-shadow: var(--shadow-lift), 0 0 30px rgba(34, 197, 94, 0.10);
 }
 
 /* --- Feature cards (Why Us) – subtle lift --- */
@@ -120,8 +120,8 @@
   transition: border-color var(--transition), background var(--transition);
 }
 .partner-badge:hover {
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--clr-overlay-border);
+  background: var(--clr-overlay-hover);
 }
 
 /* --- Included items grid --- */
@@ -149,7 +149,7 @@
 }
 .pricing-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.30);
+  box-shadow: var(--shadow-lift);
 }
 .pricing-card--featured:hover {
   box-shadow: 0 16px 40px rgba(249, 115, 22, 0.15);

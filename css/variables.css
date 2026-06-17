@@ -2,6 +2,7 @@
    OS Technology – CSS Custom Properties
    ============================================================ */
 :root {
+  /* ---- Dark theme (default) ---- */
   --clr-bg:        #0a0a0a;
   --clr-surface:   #111111;
   --clr-surface2:  #161616;
@@ -22,6 +23,16 @@
   --clr-google-yell: #fbbc04;
   --clr-dark-text:   #1a1a1a;
 
+  /* Text that sits on the orange accent (stays dark in both themes) */
+  --clr-on-accent:    #0a0a0a;
+  /* Theme-aware surface treatments (flip in light mode) */
+  --clr-overlay-hover:  rgba(255, 255, 255, 0.05);
+  --clr-overlay-border: rgba(255, 255, 255, 0.3);
+  --clr-grid-line:      rgba(255, 255, 255, 0.03);
+  --clr-grid-line-soft: rgba(255, 255, 255, 0.025);
+  --clr-header-bg:      rgba(10, 10, 10, 0.96);
+  --shadow-lift:        0 16px 48px rgba(0, 0, 0, 0.35);
+
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
@@ -34,4 +45,51 @@
 
   --transition: 0.2s ease;
   --nav-height: 64px;
+}
+
+/* ============================================================
+   Light theme
+   Applied when the user explicitly chooses light, OR when the
+   device prefers light and the user hasn't explicitly chosen dark.
+   ============================================================ */
+:root[data-theme="light"] {
+  --clr-bg:        #f4eee2;
+  --clr-surface:   #ebe4d5;
+  --clr-surface2:  #e1d8c6;
+  --clr-border:    #d8cfba;
+  --clr-text:      #2b2722;
+  --clr-text-muted:#6b6356;
+  --clr-white:     #1a1612;
+
+  --clr-overlay-hover:  rgba(0, 0, 0, 0.04);
+  --clr-overlay-border: rgba(0, 0, 0, 0.18);
+  --clr-grid-line:      rgba(0, 0, 0, 0.04);
+  --clr-grid-line-soft: rgba(0, 0, 0, 0.035);
+  --clr-header-bg:      rgba(244, 238, 226, 0.9);
+  --shadow-lift:        0 16px 48px rgba(0, 0, 0, 0.12);
+
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.10);
+  --shadow-glow: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --clr-bg:        #f4eee2;
+    --clr-surface:   #ebe4d5;
+    --clr-surface2:  #e1d8c6;
+    --clr-border:    #d8cfba;
+    --clr-text:      #2b2722;
+    --clr-text-muted:#6b6356;
+    --clr-white:     #1a1612;
+
+    --clr-overlay-hover:  rgba(0, 0, 0, 0.04);
+    --clr-overlay-border: rgba(0, 0, 0, 0.18);
+    --clr-grid-line:      rgba(0, 0, 0, 0.04);
+    --clr-grid-line-soft: rgba(0, 0, 0, 0.035);
+    --clr-header-bg:      rgba(244, 238, 226, 0.9);
+    --shadow-lift:        0 16px 48px rgba(0, 0, 0, 0.12);
+
+    --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.10);
+    --shadow-glow: none;
+  }
 }

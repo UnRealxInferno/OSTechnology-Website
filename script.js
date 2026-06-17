@@ -25,6 +25,45 @@
     });
   }
 
+  /* ---------- Theme toggle (light / dark) ---------- */
+  (function () {
+    const STORAGE_KEY = 'os-theme';
+    const root        = document.documentElement;
+    const toggle      = document.querySelector('.theme-toggle');
+    const darkQuery   = window.matchMedia('(prefers-color-scheme: dark)');
+
+    /* The effective theme = explicit choice if set, else the device preference. */
+    function effectiveTheme() {
+      const explicit = root.getAttribute('data-theme');
+      if (explicit === 'light' || explicit === 'dark') return explicit;
+      return darkQuery.matches ? 'dark' : 'light';
+    }
+
+    /* Keep the button's accessible label/state in sync with the current theme. */
+    function syncToggle() {
+      if (!toggle) return;
+      const isLight = effectiveTheme() === 'light';
+      toggle.setAttribute('aria-pressed', String(isLight));
+      toggle.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+    }
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const next = effectiveTheme() === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem(STORAGE_KEY, next); } catch (e) { /* storage unavailable */ }
+        syncToggle();
+      });
+    }
+
+    /* While following the device (no explicit choice), reflect live OS changes. */
+    darkQuery.addEventListener('change', () => {
+      if (!root.getAttribute('data-theme')) syncToggle();
+    });
+
+    syncToggle();
+  })();
+
   /* ---------- Back to top ---------- */
   const btt = document.querySelector('.back-to-top');
   if (btt) {
