@@ -9,6 +9,7 @@ body {
   color: var(--clr-text);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition), color var(--transition);
 }
 img { max-width: 100%; display: block; }
 a { color: var(--clr-accent); text-decoration: none; transition: color var(--transition); }

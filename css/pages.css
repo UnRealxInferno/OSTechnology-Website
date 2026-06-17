@@ -23,8 +23,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--clr-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--clr-grid-line) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 .hero-content {
@@ -108,8 +108,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(var(--clr-grid-line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--clr-grid-line-soft) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 .page-hero-content { position: relative; z-index: 1; }
@@ -383,7 +383,7 @@
   white-space: nowrap;
 }
 .compare-table td { color: var(--clr-text-muted); }
-.compare-table tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
+.compare-table tbody tr:hover { background: var(--clr-overlay-hover); }
 .compare-col-google { border-left: 3px solid rgba(251, 188, 4, 0.5); }
 .compare-col-microsoft { border-left: 3px solid rgba(0, 120, 212, 0.6); }
 .compare-note {

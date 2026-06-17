@@ -18,24 +18,24 @@
 
 .btn-primary {
   background: var(--clr-accent);
-  color: #0a0a0a;
+  color: var(--clr-on-accent);
   border-color: var(--clr-accent);
   font-weight: 600;
 }
 .btn-primary:hover {
   background: var(--clr-accent-dk);
   border-color: var(--clr-accent-dk);
-  color: #0a0a0a;
+  color: var(--clr-on-accent);
 }
 
 .btn-outline {
   background: transparent;
   color: var(--clr-white);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--clr-overlay-border);
 }
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: var(--clr-overlay-hover);
+  border-color: var(--clr-overlay-border);
   color: var(--clr-white);
 }
 
@@ -155,7 +155,7 @@
   top: -1px;
   right: 1.5rem;
   background: var(--clr-accent);
-  color: var(--clr-bg);
+  color: var(--clr-on-accent);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -260,7 +260,7 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
   padding: 1.75rem;
   transition: border-color var(--transition);
 }
-.feature:hover { border-color: rgba(255, 255, 255, 0.3); }
+.feature:hover { border-color: var(--clr-overlay-border); }
 .feature-icon {
   display: flex;
   align-items: center;
@@ -477,7 +477,7 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
   width: 40px;
   height: 40px;
   background: var(--clr-accent);
-  color: #0a0b0d;
+  color: var(--clr-on-accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -490,7 +490,7 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
 }
 .back-to-top svg { width: 18px; height: 18px; stroke-width: 2.5; }
 .back-to-top--visible { opacity: 1; pointer-events: auto; }
-.back-to-top:hover { transform: translateY(-3px); color: #0a0b0d; }
+.back-to-top:hover { transform: translateY(-3px); color: var(--clr-on-accent); }
 
 /* ============================================================
    INCLUDED FEATURES GRID
@@ -512,7 +512,7 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
   padding: 1.5rem;
   transition: border-color var(--transition), transform var(--transition);
 }
-.included-item:hover { border-color: rgba(255, 255, 255, 0.3); }
+.included-item:hover { border-color: var(--clr-overlay-border); }
 .included-icon { grid-column: 1; display: flex; align-items: center; margin: 0; color: var(--clr-accent); }
 .included-icon svg { width: 22px; height: 22px; stroke-width: 1.75; }
 .included-item h3 {
@@ -542,7 +542,7 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
   counter-increment: step;
   transition: border-color var(--transition);
 }
-.process-step:hover { border-color: rgba(255, 255, 255, 0.3); }
+.process-step:hover { border-color: var(--clr-overlay-border); }
 .process-step::before {
   content: counter(step, decimal-leading-zero);
   display: block;
@@ -631,7 +631,7 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
   flex-direction: column;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
-.pricing-card:hover { border-color: rgba(255, 255, 255, 0.3); }
+.pricing-card:hover { border-color: var(--clr-overlay-border); }
 .pricing-card--featured {
   border-color: rgba(249, 115, 22, 0.4);
   position: relative;
