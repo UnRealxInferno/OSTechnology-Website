@@ -34,9 +34,19 @@
 }
 
 /* --- Sticky header depth on scroll --- */
+/* backdrop-filter is applied via ::before (not on .site-header itself)
+   because filter/backdrop-filter on an element creates a new containing
+   block for any position:fixed descendants — which would break the
+   fixed-positioned mobile .nav-links menu once the page is scrolled. */
 .site-header--scrolled {
   background: var(--clr-header-bg);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+.site-header--scrolled::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   backdrop-filter: blur(10px);
 }
 
