@@ -2,7 +2,13 @@
    OS Technology – Reset & Base Styles
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+/* overflow-x: clip contains the off-canvas mobile menu (translated one
+   viewport-width off the right edge) so it can't widen the layout viewport,
+   which on mobile caused a few pixels of horizontal scroll and pushed the
+   fixed "back to top" button partly off-screen. clip avoids creating a scroll
+   container, so it doesn't break the sticky header or smooth scrolling. */
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: clip; }
+body { overflow-x: clip; }
 body {
   font-family: var(--font-sans);
   background: var(--clr-bg);
