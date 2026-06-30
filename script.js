@@ -70,6 +70,15 @@
     window.addEventListener('scroll', () => {
       btt.classList.toggle('back-to-top--visible', window.scrollY > 400);
     }, { passive: true });
+
+    /* The #top target is the sticky header, whose scroll anchor tracks the
+       current scroll position, so a plain fragment jump goes nowhere. Scroll
+       the window to the top explicitly instead. */
+    btt.addEventListener('click', (e) => {
+      e.preventDefault();
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
   }
 
   /* ---------- Header shadow on scroll ---------- */
