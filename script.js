@@ -9,6 +9,23 @@
   const formTs = document.getElementById('_form_loaded_at');
   if (formTs) formTs.value = Date.now();
 
+  /* ---------- Obfuscated contact links (anti-scraping) ---------- */
+  /* Phone/email are stored base64-encoded in data attributes rather than as
+     plain tel:/mailto: hrefs, so bulk scrapers that only read static HTML
+     (rather than execute JS) don't harvest them. */
+  document.querySelectorAll('[data-contact-type]').forEach((el) => {
+    const type  = el.getAttribute('data-contact-type');
+    const value = atob(el.getAttribute('data-contact-value'));
+    el.setAttribute('href', `${type}:${value}`);
+    el.removeAttribute('data-contact-type');
+    el.removeAttribute('data-contact-value');
+
+    /* Icon links keep the display text in a nested span so the icon survives. */
+    const displayEl = el.querySelector('[data-contact-display]') || el;
+    displayEl.textContent = atob(displayEl.getAttribute('data-contact-display'));
+    displayEl.removeAttribute('data-contact-display');
+  });
+
   /* ---------- Nav toggle ---------- */
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks  = document.getElementById('nav-links');
