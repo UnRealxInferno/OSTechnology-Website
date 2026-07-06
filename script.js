@@ -151,6 +151,47 @@
   /* ---------- Contact form (AJAX via Web3Forms) ---------- */
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
+
+    /* The <form novalidate> attribute suppresses the browser's native error
+       bubbles so we can show errors inline via .field-error spans instead,
+       but the underlying constraint-validation API (input.validity) still
+       works per-field even though the form itself won't auto-check it. */
+    function fieldErrorEl(input) {
+      return input.closest('.form-group')?.querySelector('.field-error') || null;
+    }
+
+    function showFieldError(input, message) {
+      input.classList.add('invalid');
+      const err = fieldErrorEl(input);
+      if (err) err.textContent = message;
+    }
+
+    function clearFieldError(input) {
+      input.classList.remove('invalid');
+      const err = fieldErrorEl(input);
+      if (err) err.textContent = '';
+    }
+
+    function validateField(input) {
+      if (input.validity.valid) {
+        clearFieldError(input);
+        return true;
+      }
+      const message = input.validity.typeMismatch
+        ? 'Please enter a valid email address.'
+        : 'This field is required.';
+      showFieldError(input, message);
+      return false;
+    }
+
+    const requiredFields = contactForm.querySelectorAll('#name, #email, #message');
+    requiredFields.forEach((field) => {
+      field.addEventListener('blur', () => validateField(field));
+      field.addEventListener('input', () => {
+        if (field.classList.contains('invalid')) validateField(field);
+      });
+    });
+
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
@@ -158,11 +199,37 @@
       const submitBtn   = contactForm.querySelector('[type="submit"]');
       const successDiv  = document.getElementById('form-success');
       const errorDiv    = document.getElementById('form-error');
+      const captchaErr  = document.getElementById('captcha-error');
       const originalTxt = submitBtn ? submitBtn.textContent : '';
 
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
       if (successDiv) successDiv.hidden = true;
       if (errorDiv)   errorDiv.hidden   = true;
+
+      let firstInvalid = null;
+      let formValid = true;
+      requiredFields.forEach((field) => {
+        if (!validateField(field) && !firstInvalid) firstInvalid = field;
+        formValid = formValid && field.validity.valid;
+      });
+
+      /* hCaptcha (rendered by the Web3Forms client script) writes the
+         solved challenge into this hidden field once the user completes it. */
+      const captchaResponse = contactForm.querySelector(
+        '[name="h-captcha-response"], [name="g-recaptcha-response"]'
+      );
+      const captchaSolved = !!(captchaResponse && captchaResponse.value.trim());
+      if (captchaErr) captchaErr.textContent = captchaSolved ? '' : 'Please complete the captcha challenge.';
+      if (!captchaSolved) {
+        formValid = false;
+        if (!firstInvalid) firstInvalid = contactForm.querySelector('.h-captcha');
+      }
+
+      if (!formValid) {
+        if (firstInvalid && typeof firstInvalid.focus === 'function') firstInvalid.focus();
+        return;
+      }
+
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
