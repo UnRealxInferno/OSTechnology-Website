@@ -66,13 +66,13 @@
 }
 .nav-links a:hover::after { width: 100%; }
 
-/* --- Logo-mark fill on hover --- */
+/* --- Logo-mark subtle lift on hover --- */
 .logo-mark {
-  transition: background var(--transition), color var(--transition);
+  transition: opacity var(--transition), transform var(--transition);
 }
 .logo:hover .logo-mark {
-  background: var(--clr-accent);
-  color: var(--clr-on-accent);
+  opacity: 0.85;
+  transform: scale(1.05);
 }
 
 /* --- Buttons --- */

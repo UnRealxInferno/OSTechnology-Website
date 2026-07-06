@@ -66,20 +66,10 @@
   letter-spacing: -0.01em;
 }
 .logo-mark {
-  width: 26px;
-  height: 26px;
-  background: transparent;
-  border: 1.5px solid var(--clr-accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--clr-accent);
+  height: 28px;
+  width: auto;
   flex-shrink: 0;
-  font-family: var(--font-sans);
-  line-height: 1;
+  display: block;
 }
 .logo strong { color: var(--clr-accent); font-weight: 700; }
 
