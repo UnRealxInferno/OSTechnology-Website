@@ -156,6 +156,31 @@
   color: var(--clr-text-muted);
   max-width: 280px;
 }
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text-muted);
+  transition: color var(--transition), border-color var(--transition);
+}
+.footer-social a:hover {
+  color: var(--clr-accent);
+  border-color: var(--clr-accent);
+}
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+}
 .footer-nav ul {
   display: flex;
   flex-direction: column;
