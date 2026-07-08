@@ -6,9 +6,6 @@
   .about-layout { grid-template-columns: 1fr; }
   .about-visual { max-width: 200px; }
   .contact-layout { grid-template-columns: 1fr; }
-  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero-copy { max-width: none; }
-  .contact-info--row { grid-template-columns: 1fr 1fr; }
   .footer-layout { grid-template-columns: 1fr 1fr; }
   .footer-legal { grid-column: 1 / -1; text-align: left; }
   .detail-layout { grid-template-columns: 1fr; }
@@ -48,7 +45,6 @@
   .hero-stats { gap: 0.75rem; }
 
   .form-row { grid-template-columns: 1fr; }
-  .contact-info--row { grid-template-columns: 1fr; }
   .footer-layout { grid-template-columns: 1fr; }
   .footer-legal { text-align: left; }
   .about-visual { display: none; }
