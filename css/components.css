@@ -215,7 +215,7 @@
   position: relative;
 }
 .service-list li::before {
-  content: '›';
+  content: '\203A';
   position: absolute;
   left: 0;
   color: var(--clr-accent);
@@ -712,7 +712,7 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
 }
 .pricing-features li:last-child { border-bottom: none; }
 .pricing-features li::before {
-  content: "✓";
+  content: "\2713";
   color: var(--clr-success);
   font-weight: 700;
   flex-shrink: 0;
