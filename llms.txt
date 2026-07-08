@@ -1,0 +1,27 @@
+# OS Technology
+
+OS Technology is a UK-based managed IT services provider (MSP) and certified Microsoft 365 partner, offering IT support for home users and growing businesses across East Riding of Yorkshire and the UK.
+
+## Key Pages
+
+- [Home – UK Based IT Support & Managed IT Services](https://ostechnology.uk/)
+- [About OS Technology](https://ostechnology.uk/about.html)
+- [Home IT Support Services](https://ostechnology.uk/services/home.html)
+- [Business IT Services](https://ostechnology.uk/services/business.html)
+- [Managed IT Support for Business](https://ostechnology.uk/services/business/it-support.html)
+- [Microsoft 365 Setup & Migration](https://ostechnology.uk/services/business/microsoft-365.html)
+- [Business Cybersecurity](https://ostechnology.uk/services/business/cybersecurity.html)
+- [Device Support & Procurement](https://ostechnology.uk/services/business/device-support.html)
+- [New Device Provision](https://ostechnology.uk/services/business/new-devices.html)
+- [Web Presence & Hosting](https://ostechnology.uk/services/business/web-presence.html)
+- [AI & Microsoft Copilot](https://ostechnology.uk/services/business/ai.html)
+
+## Description
+
+OS Technology provides remote-first IT support with no call centres and no jargon. Services include Microsoft 365 deployment and migration, cybersecurity auditing, device procurement, cloud storage (Nextcloud), web presence management, and fully managed IT support plans (Starter, Bronze, Silver, Gold, Platinum).
+
+## Contact
+
+- Email: hello@ostechnology.uk
+- Website: https://ostechnology.uk/
+- Area served: East Riding of Yorkshire and UK-wide (remote)

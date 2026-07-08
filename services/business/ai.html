@@ -2,32 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EJM7Y87G9"></script>
+  <!-- Analytics & Pixel deferred to first interaction to reduce TBT -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-7EJM7Y87G9');
+  (function(){
+    var _loaded=false;
+    function loadTracking(){
+      if(_loaded)return;_loaded=true;
+      var ga=document.createElement('script');ga.async=true;
+      ga.src='https://www.googletagmanager.com/gtag/js?id=G-7EJM7Y87G9';
+      document.head.appendChild(ga);
+      window.dataLayer=window.dataLayer||[];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js',new Date());gtag('config','G-7EJM7Y87G9');
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','1338483967923903');fbq('track','PageView');
+    }
+    ['scroll','click','keydown','touchstart'].forEach(function(e){
+      window.addEventListener(e,loadTracking,{once:true,passive:true});
+    });
+  })();
   </script>
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1338483967923903');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1338483967923903&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Microsoft Copilot setup for business, plus guidance on using AI safely and legally: data protection, UK GDPR and staff usage policies, from a certified Microsoft partner." />
   <meta name="robots" content="index, follow" />
@@ -145,7 +145,7 @@
   <header class="site-header" id="top">
     <nav class="navbar" aria-label="Main navigation">
       <a class="logo" href="../../index.html">
-        <img class="logo-mark" src="../../images/logo-mark.png" alt="" width="28" height="28" aria-hidden="true">
+        <picture><source srcset="../../images/logo-mark.webp" type="image/webp" /><img class="logo-mark" src="../../images/logo-mark-56.png" alt="" width="28" height="28" aria-hidden="true" /></picture>
         <span>OS <strong>Technology</strong></span>
       </a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
@@ -525,7 +525,7 @@
     <div class="container footer-layout">
       <div class="footer-brand">
         <a class="logo" href="../../index.html">
-          <img class="logo-mark" src="../../images/logo-mark.png" alt="" width="28" height="28" aria-hidden="true">
+          <picture><source srcset="../../images/logo-mark.webp" type="image/webp" /><img class="logo-mark" src="../../images/logo-mark-56.png" alt="" width="28" height="28" aria-hidden="true" /></picture>
           <span>OS <strong>Technology</strong></span>
         </a>
         <p>Microsoft 365 partner and managed IT support for home users, home businesses and growing SMBs.</p>
@@ -551,9 +551,9 @@
   </footer>
 
   <a href="#top" class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></a>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-  <script>lucide.createIcons();</script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script defer>document.addEventListener('DOMContentLoaded',function(){if(window.lucide)lucide.createIcons();});</script>
   <script src="https://web3forms.com/client/script.js" async defer></script>
-  <script src="../../script.js"></script>
+  <script defer src="../../script.js"></script>
 </body>
 </html>

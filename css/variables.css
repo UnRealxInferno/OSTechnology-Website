@@ -14,7 +14,7 @@
   --clr-badge-border: rgba(249, 115, 22, 0.25);
   --clr-success:   #10b981;
   --clr-text:      #f3f4f6;
-  --clr-text-muted:#9ca3af;
+  --clr-text-muted:#b0b8c4; /* bumped from #9ca3af for WCAG AA on small text */
   --clr-white:     #ffffff;
 
   --clr-error:       #ef4444;

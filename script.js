@@ -139,14 +139,43 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 
-    targets.forEach(el => {
-      /* Only animate elements that start below the fold */
-      if (el.getBoundingClientRect().top > window.innerHeight) {
-        el.classList.add('reveal');
-        io.observe(el);
-      }
+    /* Batch all DOM reads first, then do all writes – avoids forced reflow */
+    const vh = window.innerHeight;
+    const belowFold = Array.from(targets).filter(el => el.getBoundingClientRect().top > vh);
+    belowFold.forEach(el => {
+      el.classList.add('reveal');
+      io.observe(el);
     });
   }
+
+  /* ---------- Lazy-load hCaptcha / web3forms script ---------- */
+  /* Injected only when the contact form becomes visible in the viewport,
+     keeping it off the critical path and reducing Total Blocking Time. */
+  (function () {
+    const hcForm = document.querySelector('.contact-form, #contact-form');
+    if (!hcForm) return;
+    var w3Loaded = false;
+    function loadWeb3Forms() {
+      if (w3Loaded) return;
+      w3Loaded = true;
+      var s = document.createElement('script');
+      s.src = 'https://web3forms.com/client/script.js';
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+    if ('IntersectionObserver' in window) {
+      var formObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { loadWeb3Forms(); formObs.disconnect(); }
+        });
+      }, { rootMargin: '200px' });
+      formObs.observe(hcForm);
+    } else {
+      /* Fallback for older browsers */
+      loadWeb3Forms();
+    }
+  })();
 
   /* ---------- Contact form (AJAX via Web3Forms) ---------- */
   const contactForm = document.getElementById('contact-form');

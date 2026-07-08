@@ -2,32 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EJM7Y87G9"></script>
+  <!-- Analytics & Pixel deferred to first interaction to reduce TBT -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-7EJM7Y87G9');
+  (function(){
+    var _loaded=false;
+    function loadTracking(){
+      if(_loaded)return;_loaded=true;
+      // Google Analytics
+      var ga=document.createElement('script');ga.async=true;
+      ga.src='https://www.googletagmanager.com/gtag/js?id=G-7EJM7Y87G9';
+      document.head.appendChild(ga);
+      window.dataLayer=window.dataLayer||[];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js',new Date());gtag('config','G-7EJM7Y87G9');
+      // Meta Pixel
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','1338483967923903');fbq('track','PageView');
+    }
+    ['scroll','click','keydown','touchstart'].forEach(function(e){
+      window.addEventListener(e,loadTracking,{once:true,passive:true});
+    });
+  })();
   </script>
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1338483967923903');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1338483967923903&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
     <meta name="msvalidate.01" content="232AFE8F5368061DBA4B04CFF1DB3DEE" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Microsoft 365 MSP and IT support for home users and growing businesses across East Riding of Yorkshire and the UK. Honest pricing, no jargon." />
@@ -138,7 +140,10 @@
   <header class="site-header" id="top">
     <nav class="navbar" aria-label="Main navigation">
       <a class="logo" href="#top">
-        <img class="logo-mark" src="images/logo-mark.png" alt="" width="28" height="28" aria-hidden="true">
+        <picture>
+          <source srcset="images/logo-mark.webp" type="image/webp" />
+          <img class="logo-mark" src="images/logo-mark-56.png" alt="" width="28" height="28" aria-hidden="true" />
+        </picture>
         <span>OS <strong>Technology</strong></span>
       </a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
@@ -454,59 +459,59 @@
           <p class="section-kicker">Common Questions</p>
           <h2 id="faq-heading">Frequently Asked Questions</h2>
         </div>
-        <div class="faq-list" role="list">
+        <ul class="faq-list">
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
+          <li class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-btn-1">
               What IT services does OS Technology offer?
               <span class="faq-chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
-            <div class="faq-answer" role="region">
+            <div class="faq-answer" role="region" id="faq-answer-1" aria-labelledby="faq-btn-1">
               <p class="faq-answer-inner">We offer IT support for both home users and businesses. For businesses: managed IT support, Microsoft 365, cybersecurity, device support, new device procurement, and web presence. For home users: remote IT support, device setup, troubleshooting, and cybersecurity add-ons.</p>
             </div>
-          </div>
+          </li>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
+          <li class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-btn-2">
               Do you support home users as well as businesses?
               <span class="faq-chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
-            <div class="faq-answer" role="region">
+            <div class="faq-answer" role="region" id="faq-answer-2" aria-labelledby="faq-btn-2">
               <p class="faq-answer-inner">Yes. We work with both home users and small to medium businesses. Whether you need help with a personal laptop or a growing business that needs managed IT support, we can help.</p>
             </div>
-          </div>
+          </li>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
+          <li class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-btn-3">
               Are you a Microsoft 365 partner?
               <span class="faq-chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
-            <div class="faq-answer" role="region">
+            <div class="faq-answer" role="region" id="faq-answer-3" aria-labelledby="faq-btn-3">
               <p class="faq-answer-inner">Yes. We're a certified Microsoft Partner. We deploy, migrate, and manage Microsoft 365 for businesses of all sizes, from sole traders setting up professional email to established teams that need the full Office apps, advanced security and device management. We can also migrate you across from Google Workspace or legacy email systems.</p>
             </div>
-          </div>
+          </li>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
+          <li class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-btn-4">
               Can you fix IT problems remotely?
               <span class="faq-chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
-            <div class="faq-answer" role="region">
+            <div class="faq-answer" role="region" id="faq-answer-4" aria-labelledby="faq-btn-4">
               <p class="faq-answer-inner">Yes. We're a remote-first company and support clients across the UK via secure remote tools. Most issues are resolved the same day without needing a site visit.</p>
             </div>
-          </div>
+          </li>
 
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
+          <li class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5" id="faq-btn-5">
               Do you cover East Riding of Yorkshire?
               <span class="faq-chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
             </button>
-            <div class="faq-answer" role="region">
+            <div class="faq-answer" role="region" id="faq-answer-5" aria-labelledby="faq-btn-5">
               <p class="faq-answer-inner">Yes. We're based in East Riding of Yorkshire and support local clients in Hull, Beverley, Bridlington and across the region, as well as clients throughout the UK.</p>
             </div>
-          </div>
+          </li>
 
-        </div>
+        </ul>
       </div>
     </section>
 
@@ -619,7 +624,10 @@
     <div class="container footer-layout">
       <div class="footer-brand">
         <a class="logo" href="#top">
-          <img class="logo-mark" src="images/logo-mark.png" alt="" width="28" height="28" aria-hidden="true">
+          <picture>
+            <source srcset="images/logo-mark.webp" type="image/webp" />
+            <img class="logo-mark" src="images/logo-mark-56.png" alt="" width="28" height="28" aria-hidden="true" />
+          </picture>
           <span>OS <strong>Technology</strong></span>
         </a>
         <p>Expert IT support, web presence &amp; hosting, and cybersecurity for home users and small businesses. Based in East Riding of Yorkshire, supporting clients across the UK.</p>
@@ -646,9 +654,9 @@
 
   <a href="#top" class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></a>
 
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-  <script>lucide.createIcons();</script>
-  <script src="https://web3forms.com/client/script.js" async defer></script>
-  <script src="script.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script defer>document.addEventListener('DOMContentLoaded',function(){if(window.lucide)lucide.createIcons();});</script>
+  <!-- hCaptcha (web3forms) lazy-loaded on form interaction -->
+  <script defer src="script.js"></script>
 </body>
 </html>
