@@ -90,6 +90,43 @@
 }
 
 /* ============================================================
+   SPLIT HERO (lead capture: copy + form side by side)
+   ============================================================ */
+.hero:has(.hero-grid) { min-height: auto; }
+.hero-content--split {
+  max-width: none;
+  width: 100%;
+  padding-block: 56px;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.hero-copy { max-width: 560px; }
+.hero-copy h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  margin-bottom: 1.25rem;
+}
+.hero-copy .hero-sub { margin-bottom: 2rem; }
+.hero-copy .hero-actions { margin-bottom: 2.25rem; }
+.hero-copy .hero-stats { gap: 1.75rem; padding-top: 1.5rem; }
+.hero-form-header { margin-bottom: 1.5rem; }
+.hero-form-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+.hero-form-sub {
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+}
+
+/* ============================================================
    INNER PAGE HERO
    ============================================================ */
 .page-hero {

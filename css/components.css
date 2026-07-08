@@ -435,6 +435,13 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
   gap: 2rem;
   padding-top: 0.5rem;
 }
+/* Horizontal variant: reach-us strip below the fold */
+.contact-info--row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding-top: 0;
+}
 .contact-item {
   display: flex;
   align-items: flex-start;
