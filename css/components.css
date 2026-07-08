@@ -233,8 +233,32 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
 .why-us { background: var(--clr-bg); }
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+}
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.features-list .feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+.features-list .feature-icon {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+.features-list .feature-content h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--clr-white);
+  margin-bottom: 0.4rem;
+}
+.features-list .feature-content p {
+  font-size: 0.875rem;
+  color: var(--clr-text-muted);
 }
 .feature {
   background: var(--clr-surface);
