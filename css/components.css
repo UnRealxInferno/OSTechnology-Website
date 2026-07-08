@@ -859,3 +859,406 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
 .related-card p { grid-column: 2; font-size: 0.875rem; color: var(--clr-text-muted); margin-bottom: 0; line-height: 1.5; }
 .related-link { grid-column: 3; white-space: nowrap; font-size: 0.85rem; font-weight: 600; color: var(--clr-accent); }
 .related-link:hover { color: var(--clr-white); }
+
+/* ============================================================
+   INTERACTIVE IT SOLUTION PLANNER (Lead Conversion Funnel)
+   ============================================================ */
+.configurator-card {
+  position: relative;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.configurator-card:hover {
+  border-color: rgba(249, 115, 22, 0.25);
+  box-shadow: var(--shadow-lift);
+}
+
+.configurator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.configurator-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--clr-accent);
+  background: var(--clr-badge-bg);
+  border: 1px solid var(--clr-badge-border);
+  border-radius: 30px;
+  padding: 0.3rem 0.8rem;
+}
+.configurator-step-indicator {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+}
+
+.configurator-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--clr-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.configurator-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--clr-accent), var(--clr-accent-dk));
+  width: 25%;
+  border-radius: 10px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.configurator-form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 290px;
+  justify-content: space-between;
+}
+
+.config-step {
+  display: none;
+  animation: fadeInStep 0.3s ease-out forwards;
+}
+.config-step.active {
+  display: block;
+}
+
+@keyframes fadeInStep {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.config-step-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+.config-step-subtitle {
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Step 1: Profile Cards */
+.profile-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.profile-card-option {
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
+.profile-card-content {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--clr-surface2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition), transform var(--transition), background var(--transition);
+}
+.profile-card-option input:checked + .profile-card-content {
+  border-color: var(--clr-accent);
+  background: var(--clr-badge-bg);
+  box-shadow: var(--shadow-glow);
+}
+.profile-card-content:hover {
+  border-color: var(--clr-overlay-border);
+  transform: translateY(-2px);
+}
+.profile-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: 10px;
+  color: var(--clr-accent);
+  flex-shrink: 0;
+}
+.profile-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.75;
+}
+.profile-info h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--clr-white);
+  margin-bottom: 0.15rem;
+}
+.profile-info p {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Step 2: Custom Checkbox Pills */
+.needs-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.need-checkbox-option {
+  cursor: pointer;
+  display: block;
+}
+.need-checkbox-content {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--clr-surface2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), background var(--transition);
+}
+.need-checkbox-option input:checked + .need-checkbox-content {
+  border-color: var(--clr-accent);
+  background: var(--clr-badge-bg);
+}
+.need-checkbox-content:hover {
+  border-color: var(--clr-overlay-border);
+}
+.need-checkbox-bullet {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--clr-border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition), background var(--transition);
+  flex-shrink: 0;
+}
+.need-checkbox-bullet::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--clr-on-accent);
+  border-radius: 1px;
+  transform: scale(0);
+  transition: transform 0.15s ease;
+}
+.need-checkbox-option input:checked + .need-checkbox-content .need-checkbox-bullet {
+  border-color: var(--clr-accent);
+  background: var(--clr-accent);
+}
+.need-checkbox-option input:checked + .need-checkbox-content .need-checkbox-bullet::after {
+  transform: scale(1);
+}
+.need-checkbox-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--clr-white);
+}
+
+/* Step 3: Support Scale Range Slider */
+.scale-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.scale-val-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  justify-content: center;
+  font-family: var(--font-mono);
+}
+.scale-val-display span:first-child {
+  color: var(--clr-accent);
+}
+.scale-val-display span:last-child {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+  font-family: var(--font-sans);
+}
+
+/* Custom Range Slider */
+.modern-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 10px;
+  background: var(--clr-border);
+  outline: none;
+}
+.modern-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.15s ease;
+  border: 2px solid var(--clr-surface);
+}
+.modern-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background: var(--clr-accent-dk);
+}
+.modern-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.15s ease;
+  border: 2px solid var(--clr-surface);
+}
+.modern-slider::-moz-range-thumb:hover {
+  transform: scale(1.25);
+  background: var(--clr-accent-dk);
+}
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+  font-weight: 500;
+  padding-inline: 4px;
+}
+
+/* Pricing Estimate Box */
+.estimate-box {
+  background: var(--clr-surface2);
+  border: 1px solid var(--clr-border);
+  border-left: 4px solid var(--clr-accent);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.estimate-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--clr-text-muted);
+}
+.estimate-price {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+.estimate-desc {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Step 4: Contact Fields */
+.configurator-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.configurator-fields .form-group {
+  gap: 0.25rem;
+}
+.configurator-fields label {
+  font-size: 0.8rem;
+}
+.configurator-fields input {
+  padding: 0.6rem 0.8rem;
+}
+
+/* Configurator Actions */
+.configurator-actions {
+  display: flex;
+  gap: 0.75rem;
+  border-top: 1px solid var(--clr-border);
+  padding-top: 1.25rem;
+  margin-top: auto;
+}
+.configurator-actions button {
+  flex: 1;
+  justify-content: center;
+}
+.configurator-actions button#config-prev {
+  max-width: 100px;
+}
+
+/* Success Overlay */
+.config-success-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--clr-surface);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.25rem;
+  animation: fadeInOverlay 0.3s ease-out forwards;
+}
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.success-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+.success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--clr-success);
+  border-radius: 50%;
+  color: var(--clr-success);
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.success-content h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  letter-spacing: -0.01em;
+}
+.success-content p {
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.success-content .btn {
+  margin-top: 0.5rem;
+}

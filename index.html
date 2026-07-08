@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -157,31 +157,164 @@
     <!-- ===== HERO ===== -->
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-content">
-        <p class="hero-kicker">Microsoft 365 MSP &middot; Home &amp; Business IT Support</p>
-        <h1 id="hero-heading">Tech Trouble?<br /><span class="accent">Let's Get It Sorted.</span></h1>
-        <p class="hero-sub">Certified Microsoft 365 partner and managed IT specialist for home users and growing businesses across the UK. Tell us what you need and we'll take it from there.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary"><i data-lucide="message-circle"></i> Get Help Now</a>
-          <a href="#services" class="btn btn-outline"><i data-lucide="layout-grid"></i> Browse our services</a>
-        </div>
-        <div class="hero-stats" aria-label="Our promises">
-          <div class="stat">
-            <i data-lucide="award" class="stat-icon" aria-hidden="true"></i>
-            <span class="stat-label">Certified Microsoft Partner</span>
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Column: Copy & Value Proposition -->
+          <div class="hero-content">
+            <p class="hero-kicker">Certified Microsoft 365 MSP &middot; UK-Wide Support</p>
+            <h1 id="hero-heading">Tech Trouble?<br /><span class="accent">Let's Get It Sorted.</span></h1>
+            <p class="hero-sub">Certified Microsoft 365 partner and security-first managed IT specialist for growing business teams and home offices. No jargon, just honest support.</p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary"><i data-lucide="message-circle"></i> Get in Touch</a>
+              <a href="#services" class="btn btn-outline"><i data-lucide="layout-grid"></i> Browse Services</a>
+            </div>
+            <div class="hero-stats" aria-label="Our promises">
+              <div class="stat">
+                <i data-lucide="award" class="stat-icon" aria-hidden="true"></i>
+                <span class="stat-label">Certified Microsoft Partner</span>
+              </div>
+              <div class="stat">
+                <i data-lucide="receipt" class="stat-icon" aria-hidden="true"></i>
+                <span class="stat-label">Transparent Pricing</span>
+              </div>
+              <div class="stat">
+                <i data-lucide="zap" class="stat-icon" aria-hidden="true"></i>
+                <span class="stat-label">Fast Remote Turnaround</span>
+              </div>
+              <div class="stat">
+                <i data-lucide="shield" class="stat-icon" aria-hidden="true"></i>
+                <span class="stat-label">Security-First Approach</span>
+              </div>
+            </div>
           </div>
-          <div class="stat">
-            <i data-lucide="receipt" class="stat-icon" aria-hidden="true"></i>
-            <span class="stat-label">Transparent, Upfront Pricing</span>
+
+          <!-- Right Column: Interactive Solution Configurator Widget (Lead Generation Hook) -->
+          <div class="configurator-card" id="it-planner">
+            <div class="configurator-header">
+              <div class="configurator-badge">Interactive IT Planner</div>
+              <div class="configurator-step-indicator">Step <span id="current-step-num">1</span> of 4</div>
+            </div>
+            
+            <div class="configurator-progress-bar">
+              <div class="configurator-progress-fill" id="config-progress-fill" style="width: 25%;"></div>
+            </div>
+
+            <form id="configurator-form" class="configurator-form-body" novalidate>
+              <!-- Step 1: Profile Selection -->
+              <div class="config-step active" data-step="1">
+                <h3 class="config-step-title">What type of support do you need?</h3>
+                <p class="config-step-subtitle">Choose the option that matches your situation.</p>
+                
+                <div class="profile-cards">
+                  <label class="profile-card-option">
+                    <input type="radio" name="profile_type" value="business" checked style="position: absolute; opacity: 0; pointer-events: none;" />
+                    <div class="profile-card-content">
+                      <div class="profile-icon"><i data-lucide="briefcase"></i></div>
+                      <div class="profile-info">
+                        <h4>I need IT support for my business</h4>
+                        <p>For team devices, certified Microsoft 365 setup, proactive security auditing, and daily team helpdesk support.</p>
+                      </div>
+                    </div>
+                  </label>
+                  
+                  <label class="profile-card-option">
+                    <input type="radio" name="profile_type" value="home" style="position: absolute; opacity: 0; pointer-events: none;" />
+                    <div class="profile-card-content">
+                      <div class="profile-icon"><i data-lucide="home"></i></div>
+                      <div class="profile-info">
+                        <h4>I need IT support for my home</h4>
+                        <p>For personal laptops, family computers, home-office cybersecurity, remote troubleshooting, and Wi-Fi setups.</p>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 2: Need Selection -->
+              <div class="config-step" data-step="2">
+                <h3 class="config-step-title">What would you like us to solve?</h3>
+                <p class="config-step-subtitle">Choose the areas that are top priority for you.</p>
+                
+                <div class="needs-options-grid" id="needs-options-container">
+                  <!-- Dynamic selection checkboxes loaded by JS -->
+                </div>
+              </div>
+
+              <!-- Step 3: Support Scale / Plan Selection -->
+              <div class="config-step" data-step="3">
+                <h3 class="config-step-title" id="step-3-title">What level of cover do you need?</h3>
+                <p class="config-step-subtitle" id="step-3-subtitle">Choose a plan option that sounds like the right fit.</p>
+                
+                <div class="scale-selector" id="scale-selector-container">
+                  <div class="scale-val-display">
+                    <span id="plan-display-name">Gold Plan (Most Popular)</span>
+                  </div>
+                  <input type="range" id="scale-range" min="1" max="4" value="3" class="modern-slider">
+                  <div class="slider-labels" id="slider-labels-container">
+                    <span>Starter</span>
+                    <span>Bronze/Silver</span>
+                    <span>Gold</span>
+                    <span>Platinum</span>
+                  </div>
+                </div>
+
+                <div class="estimate-box" id="estimate-plan-box" style="margin-bottom: 1.25rem;">
+                  <div class="estimate-label" id="estimate-box-label">Recommended Plan</div>
+                  <div class="estimate-price" id="estimate-plan-title" style="font-size: 1.4rem; font-family: var(--font-sans); color: var(--clr-accent); margin-bottom: 0.25rem;">Gold Plan (Most Popular)</div>
+                  <p class="estimate-desc" id="estimate-desc-text">Recommended for growing teams of 6-20. Includes UNLIMITED remote support, advanced threat antivirus, and quarterly review calls.</p>
+                </div>
+
+                <!-- Not sure option -->
+                <div style="display: flex; align-items: center; gap: 0.5rem; background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-sm); padding: 0.75rem 1rem;">
+                  <input type="checkbox" id="plan-not-sure" style="width: 18px; height: 18px; accent-color: var(--clr-accent); cursor: pointer;" />
+                  <label for="plan-not-sure" style="font-size: 0.85rem; font-weight: 500; color: var(--clr-white); cursor: pointer; user-select: none; margin: 0; display: block; flex: 1;">
+                    I'm not sure which plan we need / Let's discuss it
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 4: Contact details (Booking Lead) -->
+              <div class="config-step" data-step="4">
+                <h3 class="config-step-title" id="step-4-title">Let's review your custom IT plan!</h3>
+                <p class="config-step-subtitle" id="step-4-subtitle">Provide your contact info to receive an official proposal and schedule your free strategy call.</p>
+                
+                <div class="configurator-fields">
+                  <div class="form-group">
+                    <label for="config-name">Your Full Name <span class="accent">*</span></label>
+                    <input type="text" id="config-name" name="config-name" placeholder="John Doe" required />
+                    <span class="field-error" aria-live="polite"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="config-email">Email Address <span class="accent">*</span></label>
+                    <input type="email" id="config-email" name="config-email" placeholder="john@mybusiness.co.uk" required />
+                    <span class="field-error" aria-live="polite"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="config-phone">Phone Number <span class="accent">*</span></label>
+                    <input type="tel" id="config-phone" name="config-phone" placeholder="07123 456789" required />
+                    <span class="field-error" aria-live="polite"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation Buttons -->
+              <div class="configurator-actions">
+                <button type="button" class="btn btn-outline btn-sm" id="config-prev" disabled>Back</button>
+                <button type="button" class="btn btn-primary" id="config-next">Continue <i data-lucide="arrow-right"></i></button>
+              </div>
+            </form>
+            
+            <div class="config-success-overlay" id="config-success-overlay" style="display: none;">
+              <div class="success-content">
+                <div class="success-icon">&#10003;</div>
+                <h3 id="success-overlay-title">Request Received!</h3>
+                <p id="success-overlay-desc">Thank you! We have received your request and preferences. We will be in touch ASAP!</p>
+                <button type="button" class="btn btn-outline" id="config-reset-btn">Edit Preferences</button>
+              </div>
+            </div>
           </div>
-          <div class="stat">
-            <i data-lucide="zap" class="stat-icon" aria-hidden="true"></i>
-            <span class="stat-label">Fast, Friendly Turnaround</span>
-          </div>
-          <div class="stat">
-            <i data-lucide="shield" class="stat-icon" aria-hidden="true"></i>
-            <span class="stat-label">Security-First Approach</span>
-          </div>
+
         </div>
       </div>
     </section>

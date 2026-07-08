@@ -1,0 +1,16 @@
+{
+  "name": "ostechnology-website",
+  "version": "1.0.0",
+  "description": "Microsoft 365 MSP and IT support for home users and growing businesses across East Riding of Yorkshire and the UK.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'No build step required'",
+    "lint": "echo 'No lint step required'",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
