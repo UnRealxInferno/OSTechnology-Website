@@ -51,7 +51,7 @@
 }
 
 @media (max-width: 480px) {
-  .service-card, .included-item, .related-card { column-gap: 1rem; }
+  .service-card, .included-item, .related-card, .features-list .feature { column-gap: 1rem; }
 }
 
 /* --- Respect reduced-motion preference --- */
