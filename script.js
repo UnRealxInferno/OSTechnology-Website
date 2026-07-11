@@ -1,6 +1,25 @@
 (function () {
   'use strict';
 
+  /* ---------- GA4 conversion event helper ---------- */
+  /* Fires the conversion event and, if a URL is supplied, navigates after
+     the event is acknowledged (or after a 2-second safety timeout). */
+  function gtagSendEvent(url) {
+    var callback = function () {
+      if (typeof url === 'string') { window.location = url; }
+    };
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion_event_submit_lead_form', {
+        'event_callback': callback,
+        'event_timeout': 2000,
+      });
+    } else {
+      /* gtag not yet loaded – fire callback immediately so nothing blocks */
+      callback();
+    }
+    return false;
+  }
+
   /* ---------- Year ---------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -269,6 +288,7 @@
           if (data.success) {
             contactForm.reset();
             if (successDiv) successDiv.hidden = false;
+            gtagSendEvent();
           } else {
             if (errorDiv) errorDiv.hidden = false;
           }
@@ -574,6 +594,7 @@ Phone: ${phoneInput.value}
                 if (successDesc) successDesc.textContent = "Thank you! We have received your request. We will be in touch ASAP!";
               }
               successOverlay.style.display = 'flex';
+              gtagSendEvent();
               configForm.reset();
               // Reset databases
               serviceDatabase.business.forEach(s => s.checked = (s.id === 'm365' || s.id === 'helpdesk'));
