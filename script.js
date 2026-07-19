@@ -232,7 +232,9 @@
       return false;
     }
 
-    const requiredFields = contactForm.querySelectorAll('#name, #email, #message');
+    /* #company/#phone are only marked required on the cybersecurity audit landing page;
+       elsewhere they lack the required attribute so validity.valid is trivially true. */
+    const requiredFields = contactForm.querySelectorAll('#name, #email, #message, #phone, #company');
     requiredFields.forEach((field) => {
       field.addEventListener('blur', () => validateField(field));
       field.addEventListener('input', () => {
