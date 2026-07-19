@@ -89,6 +89,13 @@
     @media (min-width: 641px) {
       .footer-layout { grid-template-columns: 2fr 2fr; }
     }
+    /* This page has exactly 3 process steps, but the site-wide .process-steps grid uses
+       auto-fill, which reserves room for more columns than exist and leaves the 3 cards
+       packed to the left instead of spread evenly. Pin it to 3 columns above the 900px
+       breakpoint where responsive.css takes over with its own 2-column override. */
+    @media (min-width: 901px) {
+      .process-steps { grid-template-columns: repeat(3, 1fr); }
+    }
   </style>
 
   <!-- Schema.org JSON-LD -->
