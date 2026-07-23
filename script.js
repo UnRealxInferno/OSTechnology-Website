@@ -353,11 +353,10 @@
 
     const plansDatabase = {
       business: [
-        { id: 'starter', name: 'Starter Plan', desc: 'Suited for sole traders & 1-2 person businesses. Includes 24/7 monitoring, automated patching, business antivirus, and pay-as-you-go remote support.', icon: 'monitor', checked: true },
-        { id: 'bronze_silver', name: 'Bronze / Silver Plan', desc: 'Suited for small teams of 3-5. Includes 24/7 monitoring, Office 365 security audit, email spoofing protection, and standard support package.', icon: 'shield', checked: false },
-        { id: 'gold', name: 'Gold Plan (Most Popular)', desc: 'Recommended for growing teams of 6-20. Includes UNLIMITED remote support, advanced threat antivirus, and quarterly review calls.', icon: 'zap', checked: false },
-        { id: 'platinum', name: 'Platinum Plan', desc: 'Recommended for larger or regulated business teams (20+ users). Includes extended 8am-6pm support hours, monthly reports, and dedicated response times.', icon: 'award', checked: false },
-        { id: 'not_sure_biz', name: "I'm not sure / Let's discuss", desc: 'We will assess your needs and recommend the best plan for your team size and budget during our free consultation.', icon: 'help-circle', checked: false }
+        { id: 'starter', name: 'Starter Plan', desc: 'Built for startups & 1-3 person businesses. Friendly, proactive cover: 24/7 monitoring, automated patching, business antivirus, and pay-as-you-go remote support to help you get going.', icon: 'monitor', checked: false },
+        { id: 'standard', name: 'Standard Plan (Most Popular)', desc: 'Our complete cover for established teams. Includes UNLIMITED remote support, advanced threat antivirus, email protection, Office 365 security audit, and quarterly review calls.', icon: 'zap', checked: true },
+        { id: 'premium', name: 'Premium Plan', desc: 'Everything in Standard, enhanced across the board. Adds Managed Detection & Response (MDR), extended 8am-6pm support hours, monthly reporting, and dedicated response times.', icon: 'award', checked: false },
+        { id: 'not_sure_biz', name: "I'm not sure / Let's discuss", desc: 'We will assess your needs and recommend the best plan for your business during our free consultation.', icon: 'help-circle', checked: false }
       ],
       home: [
         { id: 'personal', name: 'Personal Plan', desc: 'Perfect for one computer. Includes 24/7 health monitoring, auto security patching, business-grade antivirus, and 1 hour of remote support included every month.', icon: 'monitor', checked: true },
@@ -403,61 +402,107 @@
     function renderStep3Plans() {
       const profile = getSelectedProfile();
       const plans = plansDatabase[profile];
-      
-      if (!scaleRange || !planDisplayName || !sliderLabels || !estimatePlanTitle || !estimateDescText || !planNotSure || !scaleSelectorContainer) return;
-      
-      // Configure slider boundaries and labels based on profile
-      if (profile === 'business') {
-        scaleRange.min = '1';
-        scaleRange.max = '4';
-        scaleRange.value = '3'; // Default to Gold
-        sliderLabels.innerHTML = '<span>Starter (1-2)</span><span>Bronze/Silver (3-5)</span><span>Gold (6-20)</span><span>Platinum (20+)</span>';
-      } else {
-        scaleRange.min = '1';
-        scaleRange.max = '3';
-        scaleRange.value = '1'; // Default to Personal
-        sliderLabels.innerHTML = '<span>Personal (1)</span><span>Family (2-3)</span><span>Family Plus (4+)</span>';
-      }
-      
-      // Function to update the plan selection based on current slider value
-      function updatePlanFromSlider() {
-        const val = parseInt(scaleRange.value) - 1;
-        const selectedPlan = plans[val];
-        
-        if (selectedPlan) {
-          // Mark this plan as checked in plansDatabase, and others as unchecked
-          plans.forEach((p, idx) => {
-            p.checked = (idx === val);
-          });
-          
-          planDisplayName.textContent = selectedPlan.name;
-          estimatePlanTitle.textContent = selectedPlan.name;
-          estimateDescText.textContent = selectedPlan.desc;
-          if (estimateBoxLabel) {
-            estimateBoxLabel.textContent = profile === 'business' ? 'Recommended Plan' : 'Selected Plan';
-          }
+      const bizSelector = document.getElementById('business-plan-selector');
+
+      if (!planDisplayName || !estimatePlanTitle || !estimateDescText || !planNotSure || !scaleSelectorContainer) return;
+
+      // Helper: mark a plan checked by id and mirror it into the estimate box
+      function selectPlanById(id) {
+        const sel = plans.find(p => p.id === id) || plans[0];
+        plans.forEach(p => { p.checked = (p.id === sel.id); });
+        planDisplayName.textContent = sel.name;
+        estimatePlanTitle.textContent = sel.name;
+        estimateDescText.textContent = sel.desc;
+        if (estimateBoxLabel) {
+          estimateBoxLabel.textContent = profile === 'business' ? 'Recommended Plan' : 'Selected Plan';
         }
       }
 
-      // Sync visual look of slider and not-sure state
+      // Helper: mark the last ("not sure") plan and show the custom-assessment copy
+      function selectNotSure() {
+        const notSureIndex = plans.length - 1;
+        plans.forEach((p, idx) => { p.checked = (idx === notSureIndex); });
+        const notSurePlan = plans[notSureIndex];
+        planDisplayName.textContent = "Let's discuss!";
+        estimatePlanTitle.textContent = notSurePlan ? notSurePlan.name : "Custom IT Assessment";
+        estimateDescText.textContent = notSurePlan ? notSurePlan.desc : "We will assess your needs and recommend the best plan for you during our free consultation.";
+        if (estimateBoxLabel) {
+          estimateBoxLabel.textContent = 'Custom Assessment';
+        }
+      }
+
+      if (profile === 'business') {
+        // Business: team-size gate, then Standard/Premium choice for larger teams.
+        if (scaleSelectorContainer) scaleSelectorContainer.style.display = 'none';
+        if (!bizSelector) return;
+        bizSelector.style.display = 'block';
+
+        const tierChoice = document.getElementById('biz-tier-choice');
+        const sizeRadios = bizSelector.querySelectorAll('input[name="biz_size"]');
+        const tierRadios = bizSelector.querySelectorAll('input[name="biz_tier"]');
+
+        function applyBusinessSelection() {
+          const sizeInput = bizSelector.querySelector('input[name="biz_size"]:checked');
+          const sizeVal = sizeInput ? sizeInput.value : 'large';
+          if (sizeVal === 'small') {
+            // 1-3 employees → Starter, hide the tier choice
+            if (tierChoice) tierChoice.style.display = 'none';
+            selectPlanById('starter');
+          } else {
+            // 4+ employees → let them choose Standard or Premium
+            if (tierChoice) tierChoice.style.display = 'block';
+            const tierInput = bizSelector.querySelector('input[name="biz_tier"]:checked');
+            selectPlanById(tierInput ? tierInput.value : 'standard');
+          }
+        }
+
+        function syncNotSureState() {
+          if (planNotSure.checked) {
+            bizSelector.style.opacity = '0.35';
+            bizSelector.style.pointerEvents = 'none';
+            selectNotSure();
+          } else {
+            bizSelector.style.opacity = '1';
+            bizSelector.style.pointerEvents = 'auto';
+            applyBusinessSelection();
+          }
+        }
+
+        sizeRadios.forEach(r => { r.onchange = applyBusinessSelection; });
+        tierRadios.forEach(r => { r.onchange = applyBusinessSelection; });
+        planNotSure.onchange = syncNotSureState;
+
+        planNotSure.checked = false;
+        syncNotSureState();
+        return;
+      }
+
+      // Home: original slider behaviour (Personal / Family / Family Plus).
+      if (bizSelector) bizSelector.style.display = 'none';
+      if (!scaleRange || !sliderLabels) return;
+      scaleSelectorContainer.style.display = 'block';
+      scaleRange.min = '1';
+      scaleRange.max = '3';
+      scaleRange.value = '1'; // Default to Personal
+      sliderLabels.innerHTML = '<span>Personal (1)</span><span>Family (2-3)</span><span>Family Plus (4+)</span>';
+
+      function updatePlanFromSlider() {
+        const val = parseInt(scaleRange.value) - 1;
+        const selectedPlan = plans[val];
+        if (selectedPlan) {
+          plans.forEach((p, idx) => { p.checked = (idx === val); });
+          planDisplayName.textContent = selectedPlan.name;
+          estimatePlanTitle.textContent = selectedPlan.name;
+          estimateDescText.textContent = selectedPlan.desc;
+          if (estimateBoxLabel) estimateBoxLabel.textContent = 'Selected Plan';
+        }
+      }
+
       function syncNotSureState() {
         if (planNotSure.checked) {
           scaleSelectorContainer.style.opacity = '0.35';
           scaleSelectorContainer.style.pointerEvents = 'none';
-          
-          // Mark the last element (not_sure) as checked
-          const notSureIndex = plans.length - 1;
-          plans.forEach((p, idx) => {
-            p.checked = (idx === notSureIndex);
-          });
-          
-          const notSurePlan = plans[notSureIndex];
-          planDisplayName.textContent = "Let's discuss!";
-          estimatePlanTitle.textContent = notSurePlan ? notSurePlan.name : "Custom IT Assessment";
-          estimateDescText.textContent = notSurePlan ? notSurePlan.desc : "We will assess your needs and recommend the best plan for you during our free consultation.";
-          if (estimateBoxLabel) {
-            estimateBoxLabel.textContent = 'Custom Assessment';
-          }
+          selectNotSure();
         } else {
           scaleSelectorContainer.style.opacity = '1';
           scaleSelectorContainer.style.pointerEvents = 'auto';
@@ -465,16 +510,9 @@
         }
       }
 
-      // Remove existing event listeners to avoid duplicates by replacing/re-registering
-      scaleRange.oninput = function() {
-        updatePlanFromSlider();
-      };
+      scaleRange.oninput = updatePlanFromSlider;
+      planNotSure.onchange = syncNotSureState;
 
-      planNotSure.onchange = function() {
-        syncNotSureState();
-      };
-
-      // Set initial state
       planNotSure.checked = false;
       syncNotSureState();
     }
@@ -601,7 +639,7 @@ Phone: ${phoneInput.value}
               // Reset databases
               serviceDatabase.business.forEach(s => s.checked = (s.id === 'm365' || s.id === 'helpdesk'));
               serviceDatabase.home.forEach(s => s.checked = (s.id === 'monitoring' || s.id === 'support' || s.id === 'security_home'));
-              plansDatabase.business.forEach((p, idx) => p.checked = (idx === 0));
+              plansDatabase.business.forEach(p => p.checked = (p.id === 'standard'));
               plansDatabase.home.forEach((p, idx) => p.checked = (idx === 0));
             } else {
               alert('Something went wrong. Please check your network and try again, or use the direct contact form below.');
