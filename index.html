@@ -257,23 +257,52 @@
                 <h3 class="config-step-title" id="step-3-title">What level of cover do you need?</h3>
                 <p class="config-step-subtitle" id="step-3-subtitle">Choose a plan option that sounds like the right fit.</p>
                 
-                <div class="scale-selector" id="scale-selector-container">
-                  <div class="scale-val-display">
-                    <span id="plan-display-name">Gold Plan (Most Popular)</span>
+                <!-- Business path: team-size gate, then Standard/Premium choice (JS-controlled) -->
+                <div class="business-plan-selector" id="business-plan-selector">
+                  <p class="config-step-subtitle" style="margin-bottom: 0.5rem;">How big is your team?</p>
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; cursor: pointer;">
+                      <input type="radio" name="biz_size" value="small" style="width: 18px; height: 18px; accent-color: var(--clr-accent); cursor: pointer;" />
+                      <span style="font-size: 0.85rem; font-weight: 500; color: var(--clr-white);">We're a startup &ndash; 1&ndash;3 people</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.5rem; background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; cursor: pointer;">
+                      <input type="radio" name="biz_size" value="large" checked style="width: 18px; height: 18px; accent-color: var(--clr-accent); cursor: pointer;" />
+                      <span style="font-size: 0.85rem; font-weight: 500; color: var(--clr-white);">We're an established team &ndash; 4 or more</span>
+                    </label>
                   </div>
-                  <input type="range" id="scale-range" min="1" max="4" value="3" class="modern-slider">
+
+                  <div id="biz-tier-choice">
+                    <p class="config-step-subtitle" style="margin-bottom: 0.5rem;">How much protection do you need?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem;">
+                      <label style="display: flex; align-items: center; gap: 0.5rem; background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; cursor: pointer;">
+                        <input type="radio" name="biz_tier" value="standard" checked style="width: 18px; height: 18px; accent-color: var(--clr-accent); cursor: pointer;" />
+                        <span style="font-size: 0.85rem; font-weight: 500; color: var(--clr-white);">Standard &ndash; complete, all-round cover</span>
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 0.5rem; background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; cursor: pointer;">
+                        <input type="radio" name="biz_tier" value="premium" style="width: 18px; height: 18px; accent-color: var(--clr-accent); cursor: pointer;" />
+                        <span style="font-size: 0.85rem; font-weight: 500; color: var(--clr-white);">Premium &ndash; enhanced security, adds MDR</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Home path: support-scale slider (JS-controlled) -->
+                <div class="scale-selector" id="scale-selector-container" style="display: none;">
+                  <div class="scale-val-display">
+                    <span id="plan-display-name">Standard Plan (Most Popular)</span>
+                  </div>
+                  <input type="range" id="scale-range" min="1" max="3" value="1" class="modern-slider">
                   <div class="slider-labels" id="slider-labels-container">
-                    <span>Starter</span>
-                    <span>Bronze/Silver</span>
-                    <span>Gold</span>
-                    <span>Platinum</span>
+                    <span>Personal</span>
+                    <span>Family</span>
+                    <span>Family Plus</span>
                   </div>
                 </div>
 
                 <div class="estimate-box" id="estimate-plan-box" style="margin-bottom: 1.25rem;">
                   <div class="estimate-label" id="estimate-box-label">Recommended Plan</div>
-                  <div class="estimate-price" id="estimate-plan-title" style="font-size: 1.4rem; font-family: var(--font-sans); color: var(--clr-accent); margin-bottom: 0.25rem;">Gold Plan (Most Popular)</div>
-                  <p class="estimate-desc" id="estimate-desc-text">Recommended for growing teams of 6-20. Includes UNLIMITED remote support, advanced threat antivirus, and quarterly review calls.</p>
+                  <div class="estimate-price" id="estimate-plan-title" style="font-size: 1.4rem; font-family: var(--font-sans); color: var(--clr-accent); margin-bottom: 0.25rem;">Standard Plan (Most Popular)</div>
+                  <p class="estimate-desc" id="estimate-desc-text">Our complete cover for established teams. Includes UNLIMITED remote support, advanced threat antivirus, email protection, Office 365 security audit, and quarterly review calls.</p>
                 </div>
 
                 <!-- Not sure option -->

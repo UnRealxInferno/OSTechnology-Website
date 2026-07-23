@@ -24,7 +24,7 @@ OS Technology publishes location-specific IT support pages for towns across the 
 
 ## Description
 
-OS Technology provides remote-first IT support with no call centres and no jargon. Services include Microsoft 365 deployment and migration, cybersecurity auditing, device procurement, cloud storage (Nextcloud), web presence management, and fully managed IT support plans (Starter, Bronze, Silver, Gold, Platinum).
+OS Technology provides remote-first IT support with no call centres and no jargon. Services include Microsoft 365 deployment and migration, cybersecurity auditing, device procurement, cloud storage (Nextcloud), web presence management, and fully managed IT support plans (Starter, Standard, Premium).
 
 ## Contact
 
