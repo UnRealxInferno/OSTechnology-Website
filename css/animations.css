@@ -14,12 +14,28 @@
 .hero-actions    { animation: fadeInUp 0.60s ease 0.28s both; }
 .hero-stats      { animation: fadeInUp 0.60s ease 0.38s both; }
 
-/* Subtle radial warmth in the hero */
+/* Radial warmth in the hero – tracks the cursor via --hero-mx/--hero-my,
+   written from script.js on pointermove. The position lives in the `at`
+   clause of each gradient (not background-position): a gradient with no
+   background-size renders at the full box size, so background-position
+   has nothing to shift within and is a no-op – `at` repositions the
+   gradient's own origin instead, which always works. Falls back to the
+   original bottom-left position when JS hasn't run (reduced-motion,
+   touch, no-JS). */
 .hero-bg::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 0% 100%, rgba(249, 115, 22, 0.07) 0%, transparent 70%);
+  background-image:
+    radial-gradient(circle 460px at var(--hero-mx, 15%) var(--hero-my, 90%), rgba(249, 115, 22, 0.24), transparent 70%),
+    radial-gradient(ellipse 80% 65% at var(--hero-mx, 15%) var(--hero-my, 90%), rgba(249, 115, 22, 0.08), transparent 75%);
+}
+
+/* Grid overlay parallax – shifts a few px opposite/with the cursor for a
+   subtle depth effect. --grid-x/--grid-y come from script.js; default 0
+   keeps the grid static when JS hasn't run. */
+.hero-bg::after {
+  background-position: var(--grid-x, 0px) var(--grid-y, 0px);
 }
 
 /* --- Scroll-reveal utility (class toggled by JS) --- */
@@ -205,4 +221,85 @@
 /* --- Back to top – glow on hover --- */
 .back-to-top:hover {
   box-shadow: 0 4px 18px rgba(249, 115, 22, 0.45);
+}
+
+/* ============================================================
+   Mouse-responsive visual effects
+   ============================================================ */
+
+/* --- Hero: grid parallax settle transition ---
+   --grid-x/--grid-y are rewritten every animation frame while the
+   pointer moves (see script.js), so the live parallax already feels
+   smooth; this transition is just for the gentle settle back to 0,0
+   on pointerleave. (The glow's ::before layer repositions via the
+   gradient's own `at` clause rather than background-position, and
+   isn't reliably transition-able across browsers, so it settles
+   instantly – a minor, acceptable snap on mouse-leave.) */
+.hero-bg::after {
+  transition: background-position 0.35s ease-out;
+}
+
+/* --- Cursor spotlight on cards ---
+   --spot-x/--spot-y (px, relative to the card) come from script.js.
+   The glow lives on a pseudo *behind* the card's own content: cards
+   get position:relative + overflow:hidden as the containing block,
+   direct children get an explicit z-index so they always paint above
+   the glow regardless of source order (a plain position:relative on
+   the glow pseudo isn't enough – positioned elements paint after
+   non-positioned ones, so without this the glow would sit on top of
+   the text). .process-step already uses ::before for its step number,
+   so its spotlight uses ::after instead. */
+.service-card,
+.pricing-card,
+.feature,
+.related-card,
+.included-item,
+.compare-card,
+.process-step {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card > *,
+.pricing-card > *,
+.feature > *,
+.related-card > *,
+.included-item > *,
+.compare-card > *,
+.process-step > * {
+  position: relative;
+  z-index: 1;
+}
+/* Generated content isn't matched by `> *`, so lift it explicitly. */
+.service-card::after,
+.process-step::before {
+  position: relative;
+  z-index: 1;
+}
+
+.service-card::before,
+.pricing-card::before,
+.feature::before,
+.related-card::before,
+.included-item::before,
+.compare-card::before,
+.process-step::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  background: radial-gradient(280px circle at var(--spot-x, 50%) var(--spot-y, 50%), var(--clr-accent-glow), transparent 70%);
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.service-card:hover::before,
+.pricing-card:hover::before,
+.feature:hover::before,
+.related-card:hover::before,
+.included-item:hover::before,
+.compare-card:hover::before,
+.process-step:hover::after {
+  opacity: 1;
 }

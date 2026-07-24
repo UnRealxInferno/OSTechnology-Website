@@ -76,4 +76,21 @@
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+
+  /* The cursor spotlight/hero glow are purely decorative motion effects
+     driven by JS that already skips attaching listeners under this
+     preference (see script.js) – but the spotlight's opacity fade is a
+     plain CSS :hover rule, so without this it would still flash a
+     static, non-tracking glow at the fallback center position on
+     hover/tap. Suppress that stand-in entirely rather than show a
+     half-working effect. */
+  .service-card::before,
+  .pricing-card::before,
+  .feature::before,
+  .related-card::before,
+  .included-item::before,
+  .compare-card::before,
+  .process-step::after {
+    opacity: 0 !important;
+  }
 }

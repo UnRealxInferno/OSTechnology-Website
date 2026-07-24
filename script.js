@@ -680,4 +680,76 @@ Phone: ${phoneInput.value}
     });
   }
 
+  /* ============================================================
+     MOUSE-RESPONSIVE VISUAL EFFECTS
+     (hero cursor glow + grid parallax, cursor spotlight on cards)
+     ============================================================ */
+  (function () {
+    /* Purely decorative — skip entirely for reduced-motion users and
+       for touch/coarse pointers (no hover, and no point in paying the
+       listener cost on devices that can't benefit). */
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer  = window.matchMedia('(pointer: fine)').matches;
+    if (reduceMotion || !finePointer) return;
+
+    const hero = document.querySelector('.hero');
+    const SPOT_SELECTOR = '.service-card, .pricing-card, .feature, ' +
+      '.related-card, .included-item, .compare-card, .process-step';
+
+    const HERO_SHIFT_MAX = 14; /* px – max grid parallax shift */
+
+    let lastEvent = null;
+    let ticking = false;
+
+    function updateHero(clientX, clientY) {
+      if (!hero) return;
+      const rect = hero.getBoundingClientRect();
+      const inside = clientX >= rect.left && clientX <= rect.right &&
+                     clientY >= rect.top && clientY <= rect.bottom;
+      if (!inside) return;
+
+      const mx = ((clientX - rect.left) / rect.width) * 100;
+      const my = ((clientY - rect.top) / rect.height) * 100;
+      hero.style.setProperty('--hero-mx', mx.toFixed(2) + '%');
+      hero.style.setProperty('--hero-my', my.toFixed(2) + '%');
+
+      const relX = Math.max(-1, Math.min(1, (clientX - (rect.left + rect.width / 2)) / (rect.width / 2)));
+      const relY = Math.max(-1, Math.min(1, (clientY - (rect.top + rect.height / 2)) / (rect.height / 2)));
+      hero.style.setProperty('--grid-x', (relX * HERO_SHIFT_MAX).toFixed(1) + 'px');
+      hero.style.setProperty('--grid-y', (relY * HERO_SHIFT_MAX).toFixed(1) + 'px');
+    }
+
+    function updateSpotlight(target, clientX, clientY) {
+      const card = target instanceof Element ? target.closest(SPOT_SELECTOR) : null;
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--spot-x', (clientX - rect.left) + 'px');
+      card.style.setProperty('--spot-y', (clientY - rect.top) + 'px');
+    }
+
+    function onFrame() {
+      ticking = false;
+      if (!lastEvent) return;
+      updateHero(lastEvent.clientX, lastEvent.clientY);
+      updateSpotlight(lastEvent.target, lastEvent.clientX, lastEvent.clientY);
+    }
+
+    window.addEventListener('pointermove', (e) => {
+      lastEvent = e;
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(onFrame);
+      }
+    }, { passive: true });
+
+    if (hero) {
+      hero.addEventListener('pointerleave', () => {
+        hero.style.removeProperty('--hero-mx');
+        hero.style.removeProperty('--hero-my');
+        hero.style.removeProperty('--grid-x');
+        hero.style.removeProperty('--grid-y');
+      });
+    }
+  })();
+
 })();
