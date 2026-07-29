@@ -340,8 +340,7 @@
         { id: 'm365', label: 'Set up our secure professional business emails (Microsoft 365)', checked: true },
         { id: 'helpdesk', label: 'Provide ongoing IT helpdesk support for our day-to-day needs', checked: true },
         { id: 'security', label: 'Audit & protect our business from cybersecurity threats', checked: false },
-        { id: 'devices', label: 'Sourcing & configuration of new team devices (Laptops)', checked: false },
-        { id: 'cloud', label: 'Deploy Nextcloud private secure cloud storage for our team', checked: false }
+        { id: 'devices', label: 'Sourcing & configuration of new team devices (Laptops)', checked: false }
       ],
       home: [
         { id: 'monitoring', label: 'Keep my computer healthy, updated, and scanned for threats 24/7', checked: true },
