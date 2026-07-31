@@ -1,3 +1,72 @@
+# https://ostechnology.uk/ — all crawlers welcome.
+
 User-agent: *
 Allow: /
+
+# AI search and answer engines. These are already covered by the wildcard
+# rule above; they are named explicitly because several operators only honour
+# a block that matches their own user-agent string.
+
+# OpenAI — training, live retrieval for ChatGPT, and ChatGPT Search indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic — training and Claude live retrieval / search
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Google — AI Overviews, AI Mode and Gemini grounding
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Copilot / Bing generative answers
+User-agent: bingbot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Apple Intelligence and Siri
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# Common Crawl — the corpus behind many downstream models
+User-agent: CCBot
+Allow: /
+
+# Mistral, You.com, DuckDuckGo AI
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
 Sitemap: https://ostechnology.uk/sitemap.xml
+
+# Structured site summary for large language models: https://ostechnology.uk/llms.txt
