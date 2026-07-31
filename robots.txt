@@ -2,6 +2,11 @@
 
 User-agent: *
 Allow: /
+# The .md files are the markdown twins served to agents that send
+# Accept: text/markdown. They duplicate the HTML pages, so keep them out of
+# conventional search indexes. Content negotiation on the normal page URLs is
+# unaffected by this rule.
+Disallow: /*.md$
 
 # AI search and answer engines. These are already covered by the wildcard
 # rule above; they are named explicitly because several operators only honour
@@ -29,10 +34,6 @@ Allow: /
 
 # Google — AI Overviews, AI Mode and Gemini grounding
 User-agent: Google-Extended
-Allow: /
-
-# Microsoft Copilot / Bing generative answers
-User-agent: bingbot
 Allow: /
 
 # Perplexity

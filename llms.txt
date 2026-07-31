@@ -35,6 +35,12 @@ OS Technology publishes location-specific IT support pages for towns across the 
 - [The Biggest Cybersecurity Incidents of 2026](https://ostechnology.uk/blog/2026-cybersecurity-incidents-uk-businesses): A UK-focused look at 2026's major incidents and what they mean for UK businesses.
 - [Microsoft 365 Copilot Now Runs GPT-5.6 and Claude](https://ostechnology.uk/blog/microsoft-365-copilot-gpt-claude-multi-model): What Copilot's multi-model support means for UK businesses.
 
+## For Agents
+
+Every page on this site is also available as markdown. Send `Accept: text/markdown`
+with a request for any page URL and the response will be `text/markdown` instead
+of HTML, at the same URL.
+
 ## Contact
 
 - Email: hello@ostechnology.uk
