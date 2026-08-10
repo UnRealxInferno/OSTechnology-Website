@@ -43,6 +43,8 @@
 
   .hero-content h1 { font-size: 2.2rem; }
   .hero-stats { gap: 0.75rem; }
+  .hero .hero-stats { gap: 0.75rem 1.25rem; }
+  .features-grid { grid-template-columns: 1fr; gap: 1rem; }
 
   .form-row { grid-template-columns: 1fr; }
   .footer-layout { grid-template-columns: 1fr; }

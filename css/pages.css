@@ -7,11 +7,12 @@
    ============================================================ */
 .hero {
   position: relative;
-  min-height: calc(100vh - var(--nav-height));
+  min-height: min(660px, calc(100vh - var(--nav-height)));
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-block: 4rem;
+  padding-block: clamp(3.5rem, 9vw, 5.5rem);
+  text-align: center;
 }
 .hero-bg {
   position: absolute;
@@ -28,24 +29,12 @@
     linear-gradient(90deg, var(--clr-grid-line) 1px, transparent 1px);
   background-size: 60px 60px;
 }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3.5rem;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-}
-@media (min-width: 992px) {
-  .hero-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-  }
-}
 .hero-content {
   position: relative;
-  z-index: 1;
-  max-width: 100%;
+  z-index: 2;
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
 }
 .hero-kicker {
   font-size: 0.78rem;
@@ -56,7 +45,7 @@
   margin-bottom: 1.25rem;
 }
 .hero-content h1 {
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(2.6rem, 7vw, 4.75rem);
   font-weight: 800;
   line-height: 1.05;
   color: var(--clr-white);
@@ -66,15 +55,17 @@
 .hero-sub {
   font-size: 1.1rem;
   color: var(--clr-text-muted);
-  max-width: 520px;
-  margin-bottom: 2.5rem;
+  max-width: 620px;
+  margin-inline: auto;
+  margin-bottom: 2.25rem;
   line-height: 1.7;
 }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.75rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 .hero-stats {
   display: flex;
@@ -83,6 +74,9 @@
   border-top: 1px solid var(--clr-border);
   padding-top: 2rem;
 }
+/* The homepage hero is centre-aligned; the audit page reuses .hero-stats
+   inside a left-aligned .page-hero, so only centre it here. */
+.hero .hero-stats { justify-content: center; gap: 2rem; }
 .stat {
   display: flex;
   align-items: center;
