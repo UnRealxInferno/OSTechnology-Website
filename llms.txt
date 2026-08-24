@@ -1,30 +1,49 @@
 # OS Technology
 
-OS Technology is a UK-based managed IT services provider (MSP) and certified Microsoft 365 partner, offering IT support for home users and growing businesses across East Riding of Yorkshire and the UK.
+> UK-based managed IT services provider (MSP) and certified Microsoft 365 partner, offering IT support for home users and growing businesses across East Riding of Yorkshire and the UK.
+
+OS Technology provides remote-first IT support with no call centres and no jargon. Services include Microsoft 365 deployment and migration, cybersecurity auditing, device procurement, web presence management, virtual CIO consultancy, and fully managed IT support plans (Starter, Standard, Premium).
 
 ## Key Pages
 
-- [Home – UK Based IT Support & Managed IT Services](https://ostechnology.uk/)
-- [About OS Technology](https://ostechnology.uk/about.html)
-- [Home IT Support Services](https://ostechnology.uk/services/home.html)
-- [Business IT Services](https://ostechnology.uk/services/business.html)
-- [Managed IT Support for Business](https://ostechnology.uk/services/business/it-support.html)
-- [Microsoft Modern Workplace (Microsoft 365 & Copilot AI)](https://ostechnology.uk/services/business/modern-workplace.html)
-- [Business Cybersecurity](https://ostechnology.uk/services/business/cybersecurity.html)
-- [Device Support & Procurement](https://ostechnology.uk/services/business/device-support.html)
-- [New Device Provision](https://ostechnology.uk/services/business/new-devices.html)
-- [Web Presence & Hosting](https://ostechnology.uk/services/business/web-presence.html)
-- [Areas We Cover – IT Support Across East Riding](https://ostechnology.uk/locations)
-- [Industries We Support – Sector IT Support](https://ostechnology.uk/industries)
-- [Blog – IT & Cybersecurity Insights](https://ostechnology.uk/blog)
+- [Home – UK Based IT Support & Managed IT Services](https://ostechnology.uk/): Overview of OS Technology's home and business IT services, support plans and coverage area.
+- [About OS Technology](https://ostechnology.uk/about): Who we are, how we work, and why we are remote-first.
+- [Partners](https://ostechnology.uk/partners): Microsoft licensing, ThreatDown endpoint security and Ironscales email protection.
+
+## Services
+
+- [Home IT Support Services](https://ostechnology.uk/services/home): IT support for home users — device setup, troubleshooting, security and backup.
+- [Business IT Services](https://ostechnology.uk/services/business): Index of managed services for growing UK businesses.
+- [Managed IT Support for Business](https://ostechnology.uk/services/business/it-support): Fully managed IT support plans (Starter, Standard, Premium).
+- [Microsoft Modern Workplace (Microsoft 365 & Copilot AI)](https://ostechnology.uk/services/business/modern-workplace): Microsoft 365 deployment, migration and Copilot adoption.
+- [Business Cybersecurity](https://ostechnology.uk/services/business/cybersecurity): Endpoint protection, email security, auditing and staff awareness.
+- [Device Support & Procurement](https://ostechnology.uk/services/business/device-support): Ongoing support and lifecycle management for business devices.
+- [New Device Provision](https://ostechnology.uk/services/business/new-devices): Sourcing, configuring and deploying new business hardware.
+- [Web Presence & Hosting](https://ostechnology.uk/services/business/web-presence): Websites, domains, hosting and business email.
+- [Virtual CIO (vCIO)](https://ostechnology.uk/services/business/vcio): Technology roadmapping, IT budget planning, vendor management and quarterly business reviews.
 
 ## Local & Industry Landing Pages
 
-OS Technology publishes location-specific IT support pages for towns across the East Riding of Yorkshire (Hull, Beverley, Bridlington, Goole, Driffield, Cottingham, Hessle, Pocklington, Withernsea, Hedon, Howden and Market Weighton) at https://ostechnology.uk/locations, and industry-specific pages for office-based sectors (accountants, solicitors, estate agents, financial advisers, recruitment agencies, architects, insurance brokers, marketing agencies and charities) at https://ostechnology.uk/industries. Industry pages cover the IT foundation OS Technology manages — Microsoft 365, devices, cybersecurity and backup — not third-party line-of-business software, which is supported by its own vendors.
+- [Areas We Cover – IT Support Across East Riding](https://ostechnology.uk/locations): Index of location pages.
+- [Industries We Support – Sector IT Support](https://ostechnology.uk/industries): Index of industry pages.
 
-## Description
+OS Technology publishes location-specific IT support pages for towns across the East Riding of Yorkshire (Hull, Beverley, Bridlington, Goole, Driffield, Cottingham, Hessle, Pocklington, Withernsea, Hedon, Howden and Market Weighton) at https://ostechnology.uk/locations, and industry-specific pages for office-based sectors (accountants, solicitors, estate agents, financial advisers, recruitment agencies, architects, insurance brokers, marketing agencies, charities and entrepreneurs / multi-business owners) at https://ostechnology.uk/industries. Industry pages cover the IT foundation OS Technology manages — Microsoft 365, devices, cybersecurity and backup — not third-party line-of-business software, which is supported by its own vendors.
 
-OS Technology provides remote-first IT support with no call centres and no jargon. Services include Microsoft 365 deployment and migration, cybersecurity auditing, device procurement, web presence management, and fully managed IT support plans (Starter, Standard, Premium).
+## Blog
+
+- [Blog – IT & Cybersecurity Insights](https://ostechnology.uk/blog): Index of all articles.
+- [The Biggest Cybersecurity Incidents of 2026](https://ostechnology.uk/blog/2026-cybersecurity-incidents-uk-businesses): A UK-focused look at 2026's major incidents and what they mean for UK businesses.
+- [Microsoft 365 Copilot Now Runs GPT-5.6 and Claude](https://ostechnology.uk/blog/microsoft-365-copilot-gpt-claude-multi-model): What Copilot's multi-model support means for UK businesses.
+- [Shadow AI and Client Data: The Hidden Risk in Your Accountancy Practice](https://ostechnology.uk/blog/shadow-ai-accountancy-client-data): Unsanctioned AI tools handling client data in accountancy firms.
+- [Shadow AI in Recruitment: The Risk Hiding in Your CV Pile](https://ostechnology.uk/blog/shadow-ai-recruitment-cv-data): Unsanctioned AI tools handling candidate CV data.
+- [Multiple Business Emails, One Microsoft 365 Tenant](https://ostechnology.uk/blog/multiple-business-emails-one-microsoft-365-tenant): A case study in running several brands from a single tenant.
+- [Twenty Accounts, Half of Them in Plain Text](https://ostechnology.uk/blog/multiple-business-passwords-one-password-manager): A password management follow-up for multi-business owners.
+
+## For Agents
+
+Every page on this site is also available as markdown. Send `Accept: text/markdown`
+with a request for any page URL and the response will be `text/markdown` instead
+of HTML, at the same URL.
 
 ## Contact
 
