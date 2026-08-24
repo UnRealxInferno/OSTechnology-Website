@@ -177,11 +177,21 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://ostechnology.uk/industries/it-support-for-entrepreneurs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Blog -->
   <url>
     <loc>https://ostechnology.uk/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ostechnology.uk/blog/multiple-business-passwords-one-password-manager</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ostechnology.uk/blog/2026-cybersecurity-incidents-uk-businesses</loc>
@@ -190,6 +200,21 @@
   </url>
   <url>
     <loc>https://ostechnology.uk/blog/microsoft-365-copilot-gpt-claude-multi-model</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ostechnology.uk/blog/multiple-business-emails-one-microsoft-365-tenant</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ostechnology.uk/blog/shadow-ai-recruitment-cv-data</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ostechnology.uk/blog/shadow-ai-accountancy-client-data</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

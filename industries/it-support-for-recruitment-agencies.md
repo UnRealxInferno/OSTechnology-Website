@@ -25,7 +25,7 @@ Recruitment runs on communication, so we make sure your team is never held back 
 
 ## Ready to grow with you
 
-Adding a new consultant should be quick and painless. We handle device provisioning and onboarding so new starters are set up securely from day one, and offboarding so leavers’ access and data are handled properly. As you grow, your Microsoft 365, security and devices scale with you, with candidate and client data protected throughout.
+Adding a new consultant should be quick and painless. We handle device provisioning and onboarding so new starters are set up securely from day one, and offboarding so leavers’ access and data are handled properly. As you grow, your Microsoft 365, security and devices scale with you, with candidate and client data protected throughout, including from the unapproved AI tools we cover in [our guide to shadow AI in recruitment](https://ostechnology.uk/blog/shadow-ai-recruitment-cv-data).
 
 What’s Included
 

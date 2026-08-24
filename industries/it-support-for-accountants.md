@@ -25,7 +25,7 @@ Behind the scenes, we keep the essentials running so your team rarely has to thi
 
 ## Protecting client financial data
 
-You hold some of your clients’ most sensitive information, so security isn’t optional. We put layered protection around your practice: endpoint security, multi-factor authentication, encrypted devices, managed backup and staff security awareness, helping you meet your GDPR responsibilities and give clients confidence their data is safe.
+You hold some of your clients’ most sensitive information, so security isn’t optional. We put layered protection around your practice: endpoint security, multi-factor authentication, encrypted devices, managed backup and staff security awareness, helping you meet your GDPR responsibilities and give clients confidence their data is safe. That includes the risk of staff pasting client data into unapproved AI tools, something we cover in more detail in [our guide to shadow AI in accountancy practices](https://ostechnology.uk/blog/shadow-ai-accountancy-client-data).
 
 What’s Included
 

@@ -55,6 +55,10 @@ We support office-based firms of all kinds. Select your industry to see how we h
 
 [Charities & Non-profitsManaged IT support built around charities & non-profits.View →](https://ostechnology.uk/industries/it-support-for-charities)
 
+###
+
+[Entrepreneurs & Multi-Business OwnersUmbrella IT support built for running several businesses at once.View →](https://ostechnology.uk/industries/it-support-for-entrepreneurs)
+
 ## Don’t See Your Industry?
 
 We support all kinds of office-based businesses, not just the ones listed here. Get in touch and we’ll explain exactly how we’d help your firm.
