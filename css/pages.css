@@ -7,11 +7,12 @@
    ============================================================ */
 .hero {
   position: relative;
-  min-height: calc(100vh - var(--nav-height));
+  min-height: min(660px, calc(100vh - var(--nav-height)));
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-block: 4rem;
+  padding-block: clamp(3.5rem, 9vw, 5.5rem);
+  text-align: center;
 }
 .hero-bg {
   position: absolute;
@@ -28,24 +29,12 @@
     linear-gradient(90deg, var(--clr-grid-line) 1px, transparent 1px);
   background-size: 60px 60px;
 }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3.5rem;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-}
-@media (min-width: 992px) {
-  .hero-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-  }
-}
 .hero-content {
   position: relative;
-  z-index: 1;
-  max-width: 100%;
+  z-index: 2;
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
 }
 .hero-kicker {
   font-size: 0.78rem;
@@ -56,7 +45,7 @@
   margin-bottom: 1.25rem;
 }
 .hero-content h1 {
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(2.6rem, 7vw, 4.75rem);
   font-weight: 800;
   line-height: 1.05;
   color: var(--clr-white);
@@ -66,15 +55,17 @@
 .hero-sub {
   font-size: 1.1rem;
   color: var(--clr-text-muted);
-  max-width: 520px;
-  margin-bottom: 2.5rem;
+  max-width: 620px;
+  margin-inline: auto;
+  margin-bottom: 2.25rem;
   line-height: 1.7;
 }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.75rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 .hero-stats {
   display: flex;
@@ -82,6 +73,32 @@
   gap: 2.5rem;
   border-top: 1px solid var(--clr-border);
   padding-top: 2rem;
+}
+/* Hero trust chips (homepage) */
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+}
+.hero-badge svg { width: 14px; height: 14px; stroke-width: 2; color: var(--clr-accent); flex-shrink: 0; }
+.hero-badge--ms {
+  background: var(--clr-badge-bg);
+  border-color: var(--clr-badge-border);
+  color: var(--clr-text);
+  font-weight: 600;
 }
 .stat {
   display: flex;
@@ -678,3 +695,16 @@
   color: var(--clr-text-muted);
 }
 .article-share strong { color: var(--clr-white); }
+
+
+/* ============================================================
+   HOMEPAGE RHYTHM
+   The landing page is deliberately denser than the inner pages,
+   so its sections sit tighter than the site-wide 96px default.
+   ============================================================ */
+.home .section { padding-block: 72px; }
+.home .section-header { margin-bottom: 40px; }
+@media (max-width: 640px) {
+  .home .section { padding-block: 52px; }
+  .home .section-header { margin-bottom: 32px; }
+}
