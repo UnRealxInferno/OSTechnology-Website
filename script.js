@@ -146,7 +146,7 @@
     const targets = document.querySelectorAll(
       '.section-header, .service-card, .feature, .about-stat, ' +
       '.included-item, .process-step, .related-card, .pricing-card, ' +
-      '.contact-item, .compare-card'
+      '.contact-item, .compare-card, .path-card, .explore-card'
     );
 
     const io = new IntersectionObserver((entries) => {

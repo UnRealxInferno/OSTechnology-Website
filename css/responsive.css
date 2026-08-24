@@ -14,6 +14,9 @@
   .about-story-layout { grid-template-columns: 1fr; }
   .about-story-visual { display: none; }
   .compare-cards { grid-template-columns: 1fr; }
+  .path-grid { grid-template-columns: 1fr; }
+  .outcome-grid { grid-template-columns: repeat(2, 1fr); }
+  .explore-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
@@ -43,13 +46,14 @@
 
   .hero-content h1 { font-size: 2.2rem; }
   .hero-stats { gap: 0.75rem; }
-  .hero .hero-stats { gap: 0.75rem 1.25rem; }
   .features-grid { grid-template-columns: 1fr; gap: 1rem; }
 
   .form-row { grid-template-columns: 1fr; }
   .footer-layout { grid-template-columns: 1fr; }
   .footer-legal { text-align: left; }
   .about-visual { display: none; }
+  .outcome-grid { grid-template-columns: 1fr; }
+  .explore-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {

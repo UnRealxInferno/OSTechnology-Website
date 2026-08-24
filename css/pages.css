@@ -74,9 +74,32 @@
   border-top: 1px solid var(--clr-border);
   padding-top: 2rem;
 }
-/* The homepage hero is centre-aligned; the audit page reuses .hero-stats
-   inside a left-aligned .page-hero, so only centre it here. */
-.hero .hero-stats { justify-content: center; gap: 2rem; }
+/* Hero trust chips (homepage) */
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+}
+.hero-badge svg { width: 14px; height: 14px; stroke-width: 2; color: var(--clr-accent); flex-shrink: 0; }
+.hero-badge--ms {
+  background: var(--clr-badge-bg);
+  border-color: var(--clr-badge-border);
+  color: var(--clr-text);
+  font-weight: 600;
+}
 .stat {
   display: flex;
   align-items: center;
@@ -672,3 +695,16 @@
   color: var(--clr-text-muted);
 }
 .article-share strong { color: var(--clr-white); }
+
+
+/* ============================================================
+   HOMEPAGE RHYTHM
+   The landing page is deliberately denser than the inner pages,
+   so its sections sit tighter than the site-wide 96px default.
+   ============================================================ */
+.home .section { padding-block: 72px; }
+.home .section-header { margin-bottom: 40px; }
+@media (max-width: 640px) {
+  .home .section { padding-block: 52px; }
+  .home .section-header { margin-bottom: 32px; }
+}

@@ -851,23 +851,26 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
    QUICK SERVICE LINKS (homepage)
    ============================================================ */
 .quick-links-heading {
-  max-width: 860px;
-  margin: 2.75rem auto 1rem;
+  text-align: center;
+  margin: 2.25rem auto 1rem;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--clr-text-muted);
 }
+/* Flex-wrap rather than a grid so the final row centres instead of leaving
+   an orphan tile hanging on the left. */
 .quick-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 0.75rem;
-  max-width: 860px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  max-width: 900px;
   margin-inline: auto;
 }
 .quick-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.7rem;
   background: var(--clr-bg);
@@ -892,12 +895,183 @@ a.service-card .service-list li { color: var(--clr-text-muted); }
   flex-shrink: 0;
 }
 
-/* Closing line beneath a section grid (e.g. the outcomes section) */
-.section-note {
-  margin-top: 2.5rem;
-  text-align: center;
-  font-size: 0.9rem;
+
+/* ============================================================
+   HOMEPAGE: PATH CARDS (Home vs Business)
+   ============================================================ */
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 900px;
+  margin-inline: auto;
+}
+.path-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 2rem 1.75rem 1.5rem;
+  background:
+    linear-gradient(160deg, var(--clr-badge-bg) 0%, transparent 55%),
+    var(--clr-bg);
+  border: 1px solid var(--clr-badge-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.path-card:hover,
+.path-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--clr-accent);
+  box-shadow: var(--shadow-lift);
+}
+.path-badge {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  background: var(--clr-accent);
+  color: var(--clr-on-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+.path-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 0.6rem;
+  border-radius: 50%;
+  background: var(--clr-badge-bg);
+  border: 1px solid var(--clr-badge-border);
+  color: var(--clr-accent);
+}
+.path-icon svg { width: 24px; height: 24px; stroke-width: 1.75; }
+.path-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--clr-white);
+}
+.path-desc {
+  font-size: 0.92rem;
+  line-height: 1.55;
   color: var(--clr-text-muted);
 }
-.section-note a { color: var(--clr-accent); font-weight: 600; }
-.section-note a:hover { color: var(--clr-white); }
+.path-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--clr-accent);
+  transition: gap var(--transition);
+}
+.path-cta svg { width: 15px; height: 15px; stroke-width: 2.5; }
+.path-card:hover .path-cta { gap: 0.7rem; }
+
+/* Home path is differentiated in green, business keeps the orange accent. */
+.path-card--home {
+  background:
+    linear-gradient(160deg, rgba(16, 185, 129, 0.10) 0%, transparent 55%),
+    var(--clr-bg);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+.path-card--home:hover,
+.path-card--home:focus-visible { border-color: var(--clr-success); }
+.path-card--home .path-badge { background: var(--clr-success); }
+.path-card--home .path-icon {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: var(--clr-success);
+}
+.path-card--home .path-cta { color: var(--clr-success); }
+
+/* ============================================================
+   HOMEPAGE: OUTCOME ONE-LINERS
+   ============================================================ */
+.outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+}
+.outcome {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-left: 3px solid var(--clr-accent);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--clr-text);
+  transition: border-color var(--transition), background var(--transition);
+}
+.outcome:hover { border-color: var(--clr-overlay-border); border-left-color: var(--clr-accent); }
+.outcome svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.75;
+  color: var(--clr-accent);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   HOMEPAGE: EXPLORE THE SITE
+   ============================================================ */
+.explore { background: var(--clr-surface); }
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.explore-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 1.5rem;
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.explore-card:hover,
+.explore-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--clr-accent);
+  box-shadow: var(--shadow-card);
+}
+.explore-icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: var(--clr-accent);
+}
+.explore-icon svg { width: 22px; height: 22px; stroke-width: 1.75; }
+.explore-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--clr-white);
+}
+.explore-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--clr-text-muted);
+}
+.explore-card--featured {
+  background:
+    linear-gradient(160deg, var(--clr-badge-bg) 0%, transparent 60%),
+    var(--clr-bg);
+  border-color: var(--clr-badge-border);
+}

@@ -100,39 +100,6 @@
     }
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What IT services does OS Technology offer?",
-        "acceptedAnswer": { "@type": "Answer", "text": "OS Technology offers IT support for both home users and businesses. For businesses: managed IT support, Microsoft 365, cybersecurity, device support, new device procurement, web presence and virtual CIO. For home users: remote IT support, device setup, troubleshooting, and cybersecurity add-ons." }
-      },
-      {
-        "@type": "Question",
-        "name": "Are you a Microsoft 365 partner?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. OS Technology is a certified Microsoft Partner. We deploy, migrate, and manage Microsoft 365 for businesses of all sizes, from sole traders setting up professional email to established teams that need the full Office apps, advanced security and device management. We can also migrate you across from Google Workspace or legacy email systems." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you fix IT problems remotely?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We're a remote-first company and support clients across the UK via secure remote tools. Most issues are resolved the same day without needing a site visit." }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you cover East Riding of Yorkshire?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We're based in East Riding of Yorkshire and support local clients in Hull, Beverley, Bridlington and across the region, as well as clients throughout the UK." }
-      },
-      {
-        "@type": "Question",
-        "name": "How much does IT support cost?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Business IT support is a fixed monthly fee per user across our Starter, Standard and Premium plans, and home cover is a fixed monthly fee per household. You always get a clear, written quote before any work starts, with no hidden charges." }
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
 
@@ -163,7 +130,7 @@
     </nav>
   </header>
 
-  <main>
+  <main class="home">
 
     <!-- ===== HERO ===== -->
     <section class="hero" aria-labelledby="hero-heading">
@@ -172,88 +139,53 @@
         <div class="hero-content">
           <p class="hero-kicker">Certified Microsoft Partner &middot; Remote IT Support UK-Wide</p>
           <h1 id="hero-heading">Tech Trouble?<br /><span class="accent">Let's Get It Sorted.</span></h1>
-          <p class="hero-sub">OS Technology is a remote-first managed IT provider and certified Microsoft 365 partner, looking after home users and growing businesses across East Riding of Yorkshire and the UK. No jargon, no call centres, honest pricing.</p>
+          <p class="hero-sub">Managed IT, Microsoft 365 and cybersecurity for homes and growing businesses across East Riding of Yorkshire and the UK.</p>
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary"><i data-lucide="message-circle"></i> Get in Touch</a>
-            <a href="#services" class="btn btn-outline"><i data-lucide="layout-grid"></i> Browse Services</a>
+            <a href="/free-cybersecurity-audit" class="btn btn-outline"><i data-lucide="shield-check"></i> Free Security Audit</a>
           </div>
-          <div class="hero-stats" aria-label="Our promises">
-            <div class="stat">
-              <i data-lucide="award" class="stat-icon" aria-hidden="true"></i>
-              <span class="stat-label">Certified Microsoft Partner</span>
-            </div>
-            <div class="stat">
-              <i data-lucide="receipt" class="stat-icon" aria-hidden="true"></i>
-              <span class="stat-label">Transparent Pricing</span>
-            </div>
-            <div class="stat">
-              <i data-lucide="zap" class="stat-icon" aria-hidden="true"></i>
-              <span class="stat-label">Fast Remote Turnaround</span>
-            </div>
-            <div class="stat">
-              <i data-lucide="shield" class="stat-icon" aria-hidden="true"></i>
-              <span class="stat-label">Security-First Approach</span>
-            </div>
-          </div>
+          <ul class="hero-badges" role="list">
+            <li class="hero-badge hero-badge--ms">
+              <svg viewBox="0 0 48 48" width="15" height="15" aria-hidden="true" focusable="false">
+                <rect x="2" y="2" width="20" height="20" fill="#F25022"/>
+                <rect x="26" y="2" width="20" height="20" fill="#7FBA00"/>
+                <rect x="2" y="26" width="20" height="20" fill="#00A4EF"/>
+                <rect x="26" y="26" width="20" height="20" fill="#FFB900"/>
+              </svg>
+              Microsoft Partner
+            </li>
+            <li class="hero-badge"><i data-lucide="zap" aria-hidden="true"></i> Same-day remote fixes</li>
+            <li class="hero-badge"><i data-lucide="receipt" aria-hidden="true"></i> Fixed monthly pricing</li>
+            <li class="hero-badge"><i data-lucide="shield" aria-hidden="true"></i> Security-first</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== PARTNERS ===== -->
-    <section class="trust-strip" aria-label="Partner certifications">
-      <div class="container trust-strip-inner">
-        <span class="trust-strip-label">Official Partner</span>
-        <div class="partner-badge" aria-label="Microsoft Partner">
-          <svg class="ms-logo" viewBox="0 0 48 48" width="26" height="26" aria-hidden="true" focusable="false">
-            <rect x="2" y="2" width="20" height="20" fill="#F25022"/>
-            <rect x="26" y="2" width="20" height="20" fill="#7FBA00"/>
-            <rect x="2" y="26" width="20" height="20" fill="#00A4EF"/>
-            <rect x="26" y="26" width="20" height="20" fill="#FFB900"/>
-          </svg>
-          <div class="partner-badge-text">
-            <span class="partner-name">Microsoft</span>
-            <span class="partner-tier">Partner</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SERVICES ===== -->
+    <!-- ===== SERVICES / ROUTING ===== -->
     <section class="section services" id="services" aria-labelledby="services-heading">
       <div class="container">
         <div class="section-header">
           <p class="section-kicker">What We Do</p>
-          <h2 id="services-heading">Two Paths, One Provider</h2>
-          <p class="section-intro">Pick the side that fits you and see the detail, plans and pricing on the page behind it.</p>
+          <h2 id="services-heading">Pick Your Path</h2>
         </div>
-        <div class="services-grid">
 
-          <a href="/services/home" class="service-card service-card--featured service-card--featured-home">
-            <div class="service-badge service-badge--home">Home Users</div>
-            <div class="service-icon" aria-hidden="true"><i data-lucide="home"></i></div>
-            <h3>Home Services</h3>
-            <p>Friendly remote IT support for you and your family. We fix the tech, set up new devices and keep everyone safe online.</p>
-            <ul class="service-list">
-              <li>Remote IT support &amp; troubleshooting</li>
-              <li>New devices &amp; setup</li>
-              <li>Cybersecurity add-ons</li>
-              <li>Home Wi-Fi health checks</li>
-            </ul>
+        <div class="path-grid">
+          <a href="/services/home" class="path-card path-card--home">
+            <span class="path-badge">Home Users</span>
+            <span class="path-icon" aria-hidden="true"><i data-lucide="home"></i></span>
+            <span class="path-title">Home Services</span>
+            <span class="path-desc">Remote support, new device setup and online safety for you and your family.</span>
+            <span class="path-cta">See home services <i data-lucide="arrow-right" aria-hidden="true"></i></span>
           </a>
 
-          <a href="/services/business" class="service-card service-card--featured">
-            <div class="service-badge">For Business</div>
-            <div class="service-icon" aria-hidden="true"><i data-lucide="briefcase"></i></div>
-            <h3>Business Services</h3>
-            <p>Fully managed IT for growing teams, from Microsoft 365 and cybersecurity to devices, websites and IT strategy.</p>
-            <ul class="service-list">
-              <li>Managed IT support &amp; helpdesk</li>
-              <li>Microsoft Modern Workplace</li>
-              <li>Business cybersecurity</li>
-              <li>Devices, web presence &amp; vCIO</li>
-            </ul>
+          <a href="/services/business" class="path-card path-card--business">
+            <span class="path-badge">For Business</span>
+            <span class="path-icon" aria-hidden="true"><i data-lucide="briefcase"></i></span>
+            <span class="path-title">Business Services</span>
+            <span class="path-desc">Fully managed IT, Microsoft 365, cybersecurity and devices for growing teams.</span>
+            <span class="path-cta">See business services <i data-lucide="arrow-right" aria-hidden="true"></i></span>
           </a>
-
         </div>
 
         <h3 class="quick-links-heading">Business services in detail</h3>
@@ -265,115 +197,74 @@
           <a class="quick-link" href="/services/business/device-support"><i data-lucide="wrench" aria-hidden="true"></i> Device Support</a>
           <a class="quick-link" href="/services/business/web-presence"><i data-lucide="globe" aria-hidden="true"></i> Web Presence</a>
           <a class="quick-link" href="/services/business/vcio"><i data-lucide="compass" aria-hidden="true"></i> Virtual CIO</a>
-          <a class="quick-link" href="/industries"><i data-lucide="building-2" aria-hidden="true"></i> Your Industry</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== OUTCOMES / WHY US ===== -->
+    <!-- ===== OUTCOMES ===== -->
     <section class="section why-us" id="why-us" aria-labelledby="why-heading">
       <div class="container">
         <div class="section-header">
           <p class="section-kicker">What You Get</p>
           <h2 id="why-heading">The Outcomes, Not the Jargon</h2>
-          <p class="section-intro">Here's what actually changes once we're looking after your tech.</p>
         </div>
-        <div class="features-grid">
-          <div class="feature">
-            <div class="feature-icon" aria-hidden="true"><i data-lucide="activity"></i></div>
-            <h3>Less downtime, more work done</h3>
-            <p>Proactive monitoring and automatic patching catch problems before they stop your day. Most issues are resolved the same day, remotely.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon" aria-hidden="true"><i data-lucide="receipt"></i></div>
-            <h3>One predictable bill</h3>
-            <p>Fixed monthly pricing and a clear written quote before any work starts. No hourly-rate surprises, no hidden charges.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon" aria-hidden="true"><i data-lucide="shield"></i></div>
-            <h3>Protected from real threats</h3>
-            <p>Business-grade antivirus, email protection and security audits, so phishing and ransomware don't become your problem.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon" aria-hidden="true"><i data-lucide="award"></i></div>
-            <h3>Microsoft 365 done properly</h3>
-            <p>As a certified Microsoft Partner we deploy, migrate and secure email, Teams, Office and Copilot correctly the first time.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon" aria-hidden="true"><i data-lucide="message-circle"></i></div>
-            <h3>A real person who answers</h3>
-            <p>No call centres and no ticket limbo. You deal with the same certified engineers, and they already know your setup.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon" aria-hidden="true"><i data-lucide="trending-up"></i></div>
-            <h3>Room to grow</h3>
-            <p>New starters, new laptops, new sites: your IT scales with you, with a roadmap and budget planned in advance.</p>
-          </div>
-        </div>
-        <p class="section-note">Remote-first, certified engineers, based in Beverley and supporting clients UK-wide. <a href="/about">Read our story</a> &middot; <a href="/locations">Areas we cover</a></p>
+        <ul class="outcome-grid" role="list">
+          <li class="outcome"><i data-lucide="activity" aria-hidden="true"></i> Problems caught before they stop your day</li>
+          <li class="outcome"><i data-lucide="receipt" aria-hidden="true"></i> One predictable bill, quoted up front</li>
+          <li class="outcome"><i data-lucide="shield" aria-hidden="true"></i> Phishing and ransomware kept out</li>
+          <li class="outcome"><i data-lucide="award" aria-hidden="true"></i> Microsoft 365 set up properly first time</li>
+          <li class="outcome"><i data-lucide="message-circle" aria-hidden="true"></i> A named engineer, not a call centre</li>
+          <li class="outcome"><i data-lucide="trending-up" aria-hidden="true"></i> IT that scales as you hire</li>
+        </ul>
       </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
-    <section class="section faq" id="faq" aria-labelledby="faq-heading">
+    <!-- ===== EXPLORE THE SITE ===== -->
+    <section class="section explore" id="explore" aria-labelledby="explore-heading">
       <div class="container">
         <div class="section-header">
-          <p class="section-kicker">The Quick Answers</p>
-          <h2 id="faq-heading">Frequently Asked Questions</h2>
+          <p class="section-kicker">More From Us</p>
+          <h2 id="explore-heading">Explore</h2>
         </div>
-        <ul class="faq-list">
+        <div class="explore-grid">
 
-          <li class="faq-item">
-            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-btn-1">
-              What IT services does OS Technology offer?
-              <span class="faq-chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
-            </button>
-            <div class="faq-answer" role="region" id="faq-answer-1" aria-labelledby="faq-btn-1">
-              <p class="faq-answer-inner">We offer IT support for both home users and businesses. For businesses: managed IT support, Microsoft 365, cybersecurity, device support, new device procurement, web presence and virtual CIO. For home users: remote IT support, device setup, troubleshooting, and cybersecurity add-ons.</p>
-            </div>
-          </li>
+          <a href="/free-cybersecurity-audit" class="explore-card explore-card--featured">
+            <span class="explore-icon" aria-hidden="true"><i data-lucide="shield-check"></i></span>
+            <span class="explore-title">Free Cybersecurity Audit</span>
+            <span class="explore-desc">Find out where your business is exposed, at no cost.</span>
+          </a>
 
-          <li class="faq-item">
-            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-btn-2">
-              Are you a Microsoft 365 partner?
-              <span class="faq-chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
-            </button>
-            <div class="faq-answer" role="region" id="faq-answer-2" aria-labelledby="faq-btn-2">
-              <p class="faq-answer-inner">Yes. We're a certified Microsoft Partner. We deploy, migrate, and manage Microsoft 365 for businesses of all sizes, from sole traders setting up professional email to established teams that need the full Office apps, advanced security and device management. We can also migrate you across from Google Workspace or legacy email systems.</p>
-            </div>
-          </li>
+          <a href="/locations" class="explore-card">
+            <span class="explore-icon" aria-hidden="true"><i data-lucide="map-pin"></i></span>
+            <span class="explore-title">Areas We Cover</span>
+            <span class="explore-desc">Hull, Beverley, Bridlington and across the East Riding.</span>
+          </a>
 
-          <li class="faq-item">
-            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-btn-3">
-              Can you fix IT problems remotely?
-              <span class="faq-chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
-            </button>
-            <div class="faq-answer" role="region" id="faq-answer-3" aria-labelledby="faq-btn-3">
-              <p class="faq-answer-inner">Yes. We're a remote-first company and support clients across the UK via secure remote tools. Most issues are resolved the same day without needing a site visit.</p>
-            </div>
-          </li>
+          <a href="/industries" class="explore-card">
+            <span class="explore-icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
+            <span class="explore-title">Your Industry</span>
+            <span class="explore-desc">Accountants, solicitors, estate agents and more.</span>
+          </a>
 
-          <li class="faq-item">
-            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-btn-4">
-              Do you cover East Riding of Yorkshire?
-              <span class="faq-chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
-            </button>
-            <div class="faq-answer" role="region" id="faq-answer-4" aria-labelledby="faq-btn-4">
-              <p class="faq-answer-inner">Yes. We're based in East Riding of Yorkshire and support local clients in Hull, Beverley, Bridlington and across the region, as well as clients throughout the UK.</p>
-            </div>
-          </li>
+          <a href="/blog" class="explore-card">
+            <span class="explore-icon" aria-hidden="true"><i data-lucide="newspaper"></i></span>
+            <span class="explore-title">Blog &amp; Insights</span>
+            <span class="explore-desc">Plain-English IT and cybersecurity guidance.</span>
+          </a>
 
-          <li class="faq-item">
-            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5" id="faq-btn-5">
-              How much does IT support cost?
-              <span class="faq-chevron" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
-            </button>
-            <div class="faq-answer" role="region" id="faq-answer-5" aria-labelledby="faq-btn-5">
-              <p class="faq-answer-inner">Business IT support is a fixed monthly fee per user across our Starter, Standard and Premium plans, and home cover is a fixed monthly fee per household. You always get a clear, written quote before any work starts, with no hidden charges. Full pricing is on the <a href="/services/business">business</a> and <a href="/services/home">home</a> services pages.</p>
-            </div>
-          </li>
+          <a href="/about" class="explore-card">
+            <span class="explore-icon" aria-hidden="true"><i data-lucide="users"></i></span>
+            <span class="explore-title">About Us</span>
+            <span class="explore-desc">Who we are and how we work.</span>
+          </a>
 
-        </ul>
+          <a href="/partners" class="explore-card">
+            <span class="explore-icon" aria-hidden="true"><i data-lucide="handshake"></i></span>
+            <span class="explore-title">Partners</span>
+            <span class="explore-desc">The vendors and certifications behind our service.</span>
+          </a>
+
+        </div>
       </div>
     </section>
 
@@ -383,7 +274,7 @@
         <div class="section-header">
           <p class="section-kicker">Get in Touch</p>
           <h2 id="contact-heading">Let's Talk Tech</h2>
-          <p class="section-intro">Tell us what's not working, or what you're planning. We'll come back to you within one business day.</p>
+          <p class="section-intro">Tell us what's not working, or what you're planning. We reply within one business day.</p>
         </div>
         <div class="contact-layout">
           <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate aria-label="Contact form">
