@@ -69,13 +69,13 @@
   <link rel="icon" type="image/png" sizes="144x144" href="images/favicon-144.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-  <link rel="stylesheet" href="css/variables.css" />
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/pages.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/variables.css?v=20260917-2" />
+  <link rel="stylesheet" href="css/base.css?v=20260917-2" />
+  <link rel="stylesheet" href="css/layout.css?v=20260917-2" />
+  <link rel="stylesheet" href="css/components.css?v=20260917-2" />
+  <link rel="stylesheet" href="css/pages.css?v=20260917-2" />
+  <link rel="stylesheet" href="css/animations.css?v=20260917-2" />
+  <link rel="stylesheet" href="css/responsive.css?v=20260917-2" />
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -154,11 +154,12 @@
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       </button>
       <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#support-finder">Find support</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#why-us">Why OS</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/partners">Partners</a></li>
-        <li><a href="#contact">Get in Touch</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -168,34 +169,79 @@
     <!-- ===== HERO ===== -->
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container">
+      <div class="container hero-grid">
         <div class="hero-content">
-          <p class="hero-kicker">Certified Microsoft Partner &middot; Remote IT Support UK-Wide</p>
-          <h1 id="hero-heading">Tech Trouble?<br /><span class="accent">Let's Get It Sorted.</span></h1>
-          <p class="hero-sub">OS Technology is a remote-first managed IT provider and certified Microsoft 365 partner, looking after home users and growing businesses across East Riding of Yorkshire and the UK. No jargon, no call centres, honest pricing.</p>
+          <p class="hero-kicker">Microsoft Partner &middot; UK-wide remote support</p>
+          <h1 id="hero-heading">Straightforward IT support, <span class="accent">built around you.</span></h1>
+          <p class="hero-sub">From a laptop that will not cooperate to fully managed IT for a growing team. Clear advice, quick remote help and security you can rely on.</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary"><i data-lucide="message-circle"></i> Get in Touch</a>
-            <a href="#services" class="btn btn-outline"><i data-lucide="layout-grid"></i> Browse Services</a>
+            <a href="#support-finder" class="btn btn-primary">Find the right support <i data-lucide="arrow-right"></i></a>
+            <a href="#contact" class="btn btn-outline">Talk to a person</a>
           </div>
           <div class="hero-stats" aria-label="Our promises">
             <div class="stat">
-              <i data-lucide="award" class="stat-icon" aria-hidden="true"></i>
-              <span class="stat-label">Certified Microsoft Partner</span>
+              <span class="stat-mark" aria-hidden="true">01</span>
+              <span class="stat-label">Microsoft Partner</span>
             </div>
             <div class="stat">
-              <i data-lucide="receipt" class="stat-icon" aria-hidden="true"></i>
-              <span class="stat-label">Transparent Pricing</span>
+              <span class="stat-mark" aria-hidden="true">02</span>
+              <span class="stat-label">Home &amp; business</span>
             </div>
             <div class="stat">
-              <i data-lucide="zap" class="stat-icon" aria-hidden="true"></i>
-              <span class="stat-label">Fast Remote Turnaround</span>
-            </div>
-            <div class="stat">
-              <i data-lucide="shield" class="stat-icon" aria-hidden="true"></i>
-              <span class="stat-label">Security-First Approach</span>
+              <span class="stat-mark" aria-hidden="true">03</span>
+              <span class="stat-label">UK-wide remote help</span>
             </div>
           </div>
         </div>
+
+        <aside class="support-finder" id="support-finder" aria-labelledby="support-finder-title">
+          <div class="support-finder__topline">
+            <p class="support-finder__eyebrow">Support finder</p>
+            <p class="support-finder__step" id="support-step-label">Step 1 of 2</p>
+          </div>
+          <div class="support-finder__progress" aria-hidden="true">
+            <span id="support-progress"></span>
+          </div>
+
+          <div class="support-stage support-stage--active" data-support-stage="audience">
+            <h2 id="support-finder-title">What can we help with?</h2>
+            <p class="support-finder__intro">Two quick questions will point you to the right place.</p>
+            <fieldset class="support-options">
+              <legend class="sr-only">Who needs IT support?</legend>
+              <label class="support-option">
+                <input type="radio" name="support-audience" value="business" />
+                <span class="support-option__icon"><i data-lucide="briefcase-business" aria-hidden="true"></i></span>
+                <span><strong>My business</strong><small>Team, devices, Microsoft 365 or security</small></span>
+                <i data-lucide="arrow-right" class="support-option__arrow" aria-hidden="true"></i>
+              </label>
+              <label class="support-option">
+                <input type="radio" name="support-audience" value="home" />
+                <span class="support-option__icon"><i data-lucide="house" aria-hidden="true"></i></span>
+                <span><strong>My home</strong><small>Personal devices, Wi-Fi, setup or safety</small></span>
+                <i data-lucide="arrow-right" class="support-option__arrow" aria-hidden="true"></i>
+              </label>
+            </fieldset>
+          </div>
+
+          <div class="support-stage" data-support-stage="issue" hidden>
+            <button class="support-back" id="support-back" type="button"><i data-lucide="arrow-left" aria-hidden="true"></i> Back</button>
+            <h2 id="support-issue-title">What is going on?</h2>
+            <p class="support-finder__intro">Choose the closest match. You can add the detail later.</p>
+            <div class="support-issue-options" id="support-issue-options" role="radiogroup" aria-labelledby="support-issue-title"></div>
+          </div>
+
+          <div class="support-stage support-result" data-support-stage="result" hidden aria-live="polite">
+            <button class="support-back" id="support-restart" type="button"><i data-lucide="rotate-ccw" aria-hidden="true"></i> Start again</button>
+            <p class="support-result__label">Best place to start</p>
+            <div class="support-result__icon" aria-hidden="true"><i data-lucide="route"></i></div>
+            <h2 id="support-result-title">IT support</h2>
+            <p id="support-result-copy"></p>
+            <div class="support-result__actions">
+              <a class="btn btn-primary" id="support-result-link" href="#contact">View recommended service <i data-lucide="arrow-right"></i></a>
+              <a class="support-result__contact" id="support-contact-link" href="#contact">Tell us a little more</a>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -223,8 +269,8 @@
       <div class="container">
         <div class="section-header">
           <p class="section-kicker">What We Do</p>
-          <h2 id="services-heading">Two Paths, One Provider</h2>
-          <p class="section-intro">Pick the side that fits you and see the detail, plans and pricing on the page behind it.</p>
+          <h2 id="services-heading">Support for work and home</h2>
+          <p class="section-intro">Practical help for one device or a whole organisation, with clear scope and pricing.</p>
         </div>
         <div class="services-grid">
 
@@ -523,6 +569,6 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
   <script defer>document.addEventListener('DOMContentLoaded',function(){if(window.lucide)lucide.createIcons();});</script>
   <!-- hCaptcha (web3forms) lazy-loaded on form interaction -->
-  <script defer src="script.js"></script>
+  <script defer src="script.js?v=20260917-2"></script>
 </body>
 </html>

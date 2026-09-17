@@ -304,4 +304,208 @@
     });
   }
 
+  /* ---------- Landing-page support finder ---------- */
+  const supportFinder = document.getElementById('support-finder');
+  if (supportFinder) {
+    const stages = {
+      audience: supportFinder.querySelector('[data-support-stage="audience"]'),
+      issue: supportFinder.querySelector('[data-support-stage="issue"]'),
+      result: supportFinder.querySelector('[data-support-stage="result"]'),
+    };
+    const stepLabel = document.getElementById('support-step-label');
+    const progress = document.getElementById('support-progress');
+    const issueOptions = document.getElementById('support-issue-options');
+    const resultTitle = document.getElementById('support-result-title');
+    const resultCopy = document.getElementById('support-result-copy');
+    const resultLink = document.getElementById('support-result-link');
+    const contactLink = document.getElementById('support-contact-link');
+    const backButton = document.getElementById('support-back');
+    const restartButton = document.getElementById('support-restart');
+    let selectedAudience = '';
+    let selectedIssue = null;
+
+    const recommendations = {
+      business: [
+        {
+          label: 'Something is broken right now',
+          title: 'Business IT support',
+          copy: 'For faults, downtime and day-to-day technical problems, start with our responsive remote helpdesk. We will diagnose the issue and explain the next step clearly.',
+          href: '/services/business/it-support',
+          cta: 'Explore IT support',
+          formService: 'business-services',
+          message: 'I need help with an IT problem affecting my business.'
+        },
+        {
+          label: 'Microsoft 365, email or Teams',
+          title: 'Microsoft Modern Workplace',
+          copy: 'For Microsoft 365 setup, migrations, Teams, SharePoint, Copilot or account security, our Modern Workplace service is the best starting point.',
+          href: '/services/business/modern-workplace',
+          cta: 'Explore Microsoft 365',
+          formService: 'business-services',
+          message: 'I need help with Microsoft 365, email or Teams.'
+        },
+        {
+          label: 'A security concern or cyber risk',
+          title: 'Business cybersecurity',
+          copy: 'Start with a practical security review. We can help with email protection, endpoint security, threat monitoring and a clear plan to reduce risk.',
+          href: '/services/business/cybersecurity',
+          cta: 'Explore cybersecurity',
+          formService: 'business-services',
+          message: 'I would like help with a cybersecurity concern or security review.'
+        },
+        {
+          label: 'New laptops or device problems',
+          title: 'Device support',
+          copy: 'We can source, configure and support business devices, or diagnose problems with the hardware your team already uses.',
+          href: '/services/business/device-support',
+          cta: 'Explore device support',
+          formService: 'business-services',
+          message: 'I need help with business devices or new laptops.'
+        },
+        {
+          label: 'Ongoing cover for our team',
+          title: 'Managed IT for business',
+          copy: 'For reliable ongoing support, monitoring, security and Microsoft 365 management, compare our business support options.',
+          href: '/services/business',
+          cta: 'View business services',
+          formService: 'business-services',
+          message: 'I am looking for ongoing managed IT support for my business.'
+        },
+        {
+          label: 'I am not sure yet',
+          title: 'A short, no-pressure conversation',
+          copy: 'You do not need to diagnose the problem before contacting us. Tell us what is happening and we will point you in the right direction.',
+          href: '#contact',
+          cta: 'Tell us what is happening',
+          formService: 'business-services',
+          message: 'I am not sure which business IT service I need and would like some guidance.'
+        }
+      ],
+      home: [
+        {
+          label: 'A computer or device is not working',
+          title: 'Remote help for home tech',
+          copy: 'We can securely connect to diagnose slow computers, software errors and everyday device problems without waiting for a site visit.',
+          href: '/services/home',
+          cta: 'View home support',
+          formService: 'home-services',
+          message: 'I need help with a computer or device at home.'
+        },
+        {
+          label: 'Wi-Fi, printer or home network',
+          title: 'Home setup and troubleshooting',
+          copy: 'For unreliable Wi-Fi, printer trouble or devices that will not connect, start with our home support service.',
+          href: '/services/home',
+          cta: 'View home support',
+          formService: 'home-services',
+          message: 'I need help with Wi-Fi, a printer or my home network.'
+        },
+        {
+          label: 'A new device needs setting up',
+          title: 'New device setup',
+          copy: 'We can set up your new computer properly, move your files, configure accounts and make sure the essentials are secure.',
+          href: '/services/home',
+          cta: 'View home support',
+          formService: 'home-services',
+          message: 'I would like help setting up a new device at home.'
+        },
+        {
+          label: 'I am worried about security',
+          title: 'Home cybersecurity support',
+          copy: 'If something feels wrong, we can check the device, remove threats and help you put sensible protection in place.',
+          href: '/services/home',
+          cta: 'View home security help',
+          formService: 'home-services',
+          message: 'I am worried about the security of a home device or account.'
+        },
+        {
+          label: 'I am not sure yet',
+          title: 'Friendly guidance from a real person',
+          copy: 'Describe the problem in your own words. We will work out what kind of help you need and explain the options before any work starts.',
+          href: '#contact',
+          cta: 'Tell us what is happening',
+          formService: 'home-services',
+          message: 'I am not sure which home IT service I need and would like some guidance.'
+        }
+      ]
+    };
+
+    function refreshIcons() {
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function showSupportStage(name) {
+      Object.entries(stages).forEach(([stageName, element]) => {
+        const active = stageName === name;
+        element.hidden = !active;
+        element.classList.toggle('support-stage--active', active);
+      });
+      if (name === 'audience') {
+        stepLabel.textContent = 'Step 1 of 2';
+        progress.style.width = '50%';
+      } else if (name === 'issue') {
+        stepLabel.textContent = 'Step 2 of 2';
+        progress.style.width = '100%';
+      } else {
+        stepLabel.textContent = 'Your recommendation';
+        progress.style.width = '100%';
+      }
+      refreshIcons();
+    }
+
+    function renderIssues() {
+      issueOptions.replaceChildren();
+      recommendations[selectedAudience].forEach((item) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'support-issue';
+        button.textContent = item.label;
+        button.addEventListener('click', () => showRecommendation(item));
+        issueOptions.appendChild(button);
+      });
+    }
+
+    function showRecommendation(item) {
+      selectedIssue = item;
+      resultTitle.textContent = item.title;
+      resultCopy.textContent = item.copy;
+      resultLink.href = item.href;
+      resultLink.innerHTML = `${item.cta} <i data-lucide="arrow-right" aria-hidden="true"></i>`;
+      showSupportStage('result');
+    }
+
+    supportFinder.querySelectorAll('input[name="support-audience"]').forEach((radio) => {
+      radio.addEventListener('change', () => {
+        selectedAudience = radio.value;
+        renderIssues();
+        showSupportStage('issue');
+      });
+    });
+
+    backButton.addEventListener('click', () => {
+      selectedAudience = '';
+      supportFinder.querySelectorAll('input[name="support-audience"]').forEach((radio) => { radio.checked = false; });
+      showSupportStage('audience');
+    });
+    restartButton.addEventListener('click', () => {
+      selectedAudience = '';
+      selectedIssue = null;
+      supportFinder.querySelectorAll('input[name="support-audience"]').forEach((radio) => { radio.checked = false; });
+      showSupportStage('audience');
+    });
+
+    function prefillContactForm() {
+      if (!selectedIssue) return;
+      const serviceSelect = document.getElementById('service');
+      const messageInput = document.getElementById('message');
+      if (serviceSelect) serviceSelect.value = selectedIssue.formService;
+      if (messageInput && !messageInput.value.trim()) messageInput.value = selectedIssue.message;
+    }
+
+    contactLink.addEventListener('click', prefillContactForm);
+    resultLink.addEventListener('click', () => {
+      if (selectedIssue && selectedIssue.href === '#contact') prefillContactForm();
+    });
+  }
+
 })();

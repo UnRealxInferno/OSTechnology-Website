@@ -3,6 +3,11 @@
    ============================================================ */
 
 @media (max-width: 900px) {
+  .hero { min-height: auto; }
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-content { max-width: 720px; }
+  .support-finder { max-width: 680px; min-height: 0; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
   .about-layout { grid-template-columns: 1fr; }
   .about-visual { max-width: 200px; }
   .contact-layout { grid-template-columns: 1fr; }
@@ -35,16 +40,19 @@
   }
   .nav-links--open { transform: translateX(0); }
   .nav-links a { font-size: 1.1rem; color: var(--clr-text); }
+  .nav-links li:last-child a { display: inline-flex; padding: 0.7rem 1rem; }
 
   /* hamburger → X */
   .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  .hero-content h1 { font-size: 2.2rem; }
+  .hero { padding-block: 3.5rem 4rem; }
+  .hero-content h1 { font-size: clamp(2.65rem, 13vw, 4rem); }
   .hero-stats { gap: 0.75rem; }
-  .hero .hero-stats { gap: 0.75rem 1.25rem; }
+  .hero .hero-stats { gap: 0.75rem; }
   .features-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .services-grid { grid-template-columns: 1fr; }
 
   .form-row { grid-template-columns: 1fr; }
   .footer-layout { grid-template-columns: 1fr; }
@@ -53,6 +61,14 @@
 }
 
 @media (max-width: 480px) {
+  .hero-grid { gap: 2.25rem; }
+  .hero-actions { align-items: stretch; flex-direction: column; }
+  .hero-actions .btn { justify-content: center; }
+  .hero-stats { grid-template-columns: 1fr; }
+  .stat { flex-direction: row; align-items: baseline; gap: 0.65rem; }
+  .support-finder { padding: 1.25rem; }
+  .support-issue-options { grid-template-columns: 1fr; }
+  .support-option { min-height: 78px; padding: 0.85rem; }
   .service-card, .included-item, .related-card, .features-list .feature { column-gap: 1rem; }
 }
 
@@ -67,6 +83,7 @@
     opacity: 1;
     transform: none;
   }
+  .support-stage--active { animation: none; }
   .reveal {
     opacity: 1 !important;
     transform: none !important;
