@@ -304,378 +304,207 @@
     });
   }
 
-  /* ============================================================
-     INTERACTIVE IT PLANNER WIDGET LOGIC (Lead Gen Funnel)
-     ============================================================ */
-  const plannerEl = document.getElementById('it-planner');
-  if (plannerEl) {
-    const configForm = document.getElementById('configurator-form');
-    const prevBtn = document.getElementById('config-prev');
-    const nextBtn = document.getElementById('config-next');
-    const progressFill = document.getElementById('config-progress-fill');
-    const stepNumEl = document.getElementById('current-step-num');
-    const needsContainer = document.getElementById('needs-options-container');
-    const scaleRange = document.getElementById('scale-range');
-    const sliderLabels = document.getElementById('slider-labels-container');
-    const planDisplayName = document.getElementById('plan-display-name');
-    const estimatePlanBox = document.getElementById('estimate-plan-box');
-    const estimateBoxLabel = document.getElementById('estimate-box-label');
-    const estimatePlanTitle = document.getElementById('estimate-plan-title');
-    const estimateDescText = document.getElementById('estimate-desc-text');
-    const planNotSure = document.getElementById('plan-not-sure');
-    const scaleSelectorContainer = document.getElementById('scale-selector-container');
-    
-    const step4Title = document.getElementById('step-4-title');
-    const step4Subtitle = document.getElementById('step-4-subtitle');
-    const successTitle = document.getElementById('success-overlay-title');
-    const successDesc = document.getElementById('success-overlay-desc');
-    
-    const successOverlay = document.getElementById('config-success-overlay');
-    const resetBtn = document.getElementById('config-reset-btn');
-    
-    let currentStep = 1;
-    
-    const serviceDatabase = {
+  /* ---------- Landing-page support finder ---------- */
+  const supportFinder = document.getElementById('support-finder');
+  if (supportFinder) {
+    const stages = {
+      audience: supportFinder.querySelector('[data-support-stage="audience"]'),
+      issue: supportFinder.querySelector('[data-support-stage="issue"]'),
+      result: supportFinder.querySelector('[data-support-stage="result"]'),
+    };
+    const stepLabel = document.getElementById('support-step-label');
+    const progress = document.getElementById('support-progress');
+    const issueOptions = document.getElementById('support-issue-options');
+    const resultTitle = document.getElementById('support-result-title');
+    const resultCopy = document.getElementById('support-result-copy');
+    const resultLink = document.getElementById('support-result-link');
+    const contactLink = document.getElementById('support-contact-link');
+    const backButton = document.getElementById('support-back');
+    const restartButton = document.getElementById('support-restart');
+    let selectedAudience = '';
+    let selectedIssue = null;
+
+    const recommendations = {
       business: [
-        { id: 'm365', label: 'Set up our secure professional business emails (Microsoft 365)', checked: true },
-        { id: 'helpdesk', label: 'Provide ongoing IT helpdesk support for our day-to-day needs', checked: true },
-        { id: 'security', label: 'Audit & protect our business from cybersecurity threats', checked: false },
-        { id: 'devices', label: 'Sourcing & configuration of new team devices (Laptops)', checked: false }
+        {
+          label: 'Something is broken right now',
+          title: 'Business IT support',
+          copy: 'For faults, downtime and day-to-day technical problems, start with our responsive remote helpdesk. We will diagnose the issue and explain the next step clearly.',
+          href: '/services/business/it-support',
+          cta: 'Explore IT support',
+          formService: 'business-services',
+          message: 'I need help with an IT problem affecting my business.'
+        },
+        {
+          label: 'Microsoft 365, email or Teams',
+          title: 'Microsoft Modern Workplace',
+          copy: 'For Microsoft 365 setup, migrations, Teams, SharePoint, Copilot or account security, our Modern Workplace service is the best starting point.',
+          href: '/services/business/modern-workplace',
+          cta: 'Explore Microsoft 365',
+          formService: 'business-services',
+          message: 'I need help with Microsoft 365, email or Teams.'
+        },
+        {
+          label: 'A security concern or cyber risk',
+          title: 'Business cybersecurity',
+          copy: 'Start with a practical security review. We can help with email protection, endpoint security, threat monitoring and a clear plan to reduce risk.',
+          href: '/services/business/cybersecurity',
+          cta: 'Explore cybersecurity',
+          formService: 'business-services',
+          message: 'I would like help with a cybersecurity concern or security review.'
+        },
+        {
+          label: 'New laptops or device problems',
+          title: 'Device support',
+          copy: 'We can source, configure and support business devices, or diagnose problems with the hardware your team already uses.',
+          href: '/services/business/device-support',
+          cta: 'Explore device support',
+          formService: 'business-services',
+          message: 'I need help with business devices or new laptops.'
+        },
+        {
+          label: 'Ongoing cover for our team',
+          title: 'Managed IT for business',
+          copy: 'For reliable ongoing support, monitoring, security and Microsoft 365 management, compare our business support options.',
+          href: '/services/business',
+          cta: 'View business services',
+          formService: 'business-services',
+          message: 'I am looking for ongoing managed IT support for my business.'
+        },
+        {
+          label: 'I am not sure yet',
+          title: 'A short, no-pressure conversation',
+          copy: 'You do not need to diagnose the problem before contacting us. Tell us what is happening and we will point you in the right direction.',
+          href: '#contact',
+          cta: 'Tell us what is happening',
+          formService: 'business-services',
+          message: 'I am not sure which business IT service I need and would like some guidance.'
+        }
       ],
       home: [
-        { id: 'monitoring', label: 'Keep my computer healthy, updated, and scanned for threats 24/7', checked: true },
-        { id: 'support', label: 'Include 1 hour of remote tech assistance every month', checked: true },
-        { id: 'security_home', label: 'Install business-grade antivirus & safe browsing tools', checked: true },
-        { id: 'setup', label: 'Help me set up a new laptop, home Wi-Fi, or printer', checked: false }
+        {
+          label: 'A computer or device is not working',
+          title: 'Remote help for home tech',
+          copy: 'We can securely connect to diagnose slow computers, software errors and everyday device problems without waiting for a site visit.',
+          href: '/services/home',
+          cta: 'View home support',
+          formService: 'home-services',
+          message: 'I need help with a computer or device at home.'
+        },
+        {
+          label: 'Wi-Fi, printer or home network',
+          title: 'Home setup and troubleshooting',
+          copy: 'For unreliable Wi-Fi, printer trouble or devices that will not connect, start with our home support service.',
+          href: '/services/home',
+          cta: 'View home support',
+          formService: 'home-services',
+          message: 'I need help with Wi-Fi, a printer or my home network.'
+        },
+        {
+          label: 'A new device needs setting up',
+          title: 'New device setup',
+          copy: 'We can set up your new computer properly, move your files, configure accounts and make sure the essentials are secure.',
+          href: '/services/home',
+          cta: 'View home support',
+          formService: 'home-services',
+          message: 'I would like help setting up a new device at home.'
+        },
+        {
+          label: 'I am worried about security',
+          title: 'Home cybersecurity support',
+          copy: 'If something feels wrong, we can check the device, remove threats and help you put sensible protection in place.',
+          href: '/services/home',
+          cta: 'View home security help',
+          formService: 'home-services',
+          message: 'I am worried about the security of a home device or account.'
+        },
+        {
+          label: 'I am not sure yet',
+          title: 'Friendly guidance from a real person',
+          copy: 'Describe the problem in your own words. We will work out what kind of help you need and explain the options before any work starts.',
+          href: '#contact',
+          cta: 'Tell us what is happening',
+          formService: 'home-services',
+          message: 'I am not sure which home IT service I need and would like some guidance.'
+        }
       ]
     };
 
-    const plansDatabase = {
-      business: [
-        { id: 'starter', name: 'Starter Plan', desc: 'Built for startups & 1-3 person businesses. Friendly, proactive cover: 24/7 monitoring, automated patching, business antivirus, and pay-as-you-go remote support to help you get going.', icon: 'monitor', checked: false },
-        { id: 'standard', name: 'Standard Plan (Most Popular)', desc: 'Our complete cover for established teams. Includes UNLIMITED remote support, advanced threat antivirus, email protection, Office 365 security audit, and quarterly review calls.', icon: 'zap', checked: true },
-        { id: 'premium', name: 'Premium Plan', desc: 'Everything in Standard, enhanced across the board. Adds Managed Detection & Response (MDR), extended 8am-6pm support hours, monthly reporting, and dedicated response times.', icon: 'award', checked: false },
-        { id: 'not_sure_biz', name: "I'm not sure / Let's discuss", desc: 'We will assess your needs and recommend the best plan for your business during our free consultation.', icon: 'help-circle', checked: false }
-      ],
-      home: [
-        { id: 'personal', name: 'Personal Plan', desc: 'Perfect for one computer. Includes 24/7 health monitoring, auto security patching, business-grade antivirus, and 1 hour of remote support included every month.', icon: 'monitor', checked: true },
-        { id: 'family', name: 'Family Plan', desc: 'Covers up to 3 computers. Includes full monitoring, updates, and business antivirus on all devices, and 1 hour of remote support included every month.', icon: 'users', checked: false },
-        { id: 'family_plus', name: 'Family Plus Plan', desc: 'Covers 4 or more household computers. Includes same full monitoring, updates, and business antivirus on all devices, and 1 hour of remote support included every month.', icon: 'server', checked: false },
-        { id: 'not_sure_home', name: "I'm not sure / Let's discuss", desc: "Tell us what tech challenges you're experiencing, and we'll suggest the most cost-effective and friendly way to get them sorted.", icon: 'help-circle', checked: false }
-      ]
-    };
-
-    function getSelectedProfile() {
-      const radio = configForm.querySelector('input[name="profile_type"]:checked');
-      return radio ? radio.value : 'business';
+    function refreshIcons() {
+      if (window.lucide) window.lucide.createIcons();
     }
 
-    function renderStep2Options() {
-      const profile = getSelectedProfile();
-      const options = serviceDatabase[profile];
-      needsContainer.innerHTML = '';
-      
-      options.forEach(opt => {
-        const optionLabel = document.createElement('label');
-        optionLabel.className = 'need-checkbox-option';
-        
-        const isCheckedAttr = opt.checked ? 'checked' : '';
-        
-        optionLabel.innerHTML = `
-          <input type="checkbox" name="needs" value="${opt.id}" ${isCheckedAttr} style="position: absolute; opacity: 0; pointer-events: none;" />
-          <div class="need-checkbox-content">
-            <div class="need-checkbox-bullet"></div>
-            <div class="need-checkbox-label">${opt.label}</div>
-          </div>
-        `;
-        
-        const checkbox = optionLabel.querySelector('input');
-        checkbox.addEventListener('change', () => {
-          opt.checked = checkbox.checked;
-        });
-        
-        needsContainer.appendChild(optionLabel);
+    function showSupportStage(name) {
+      Object.entries(stages).forEach(([stageName, element]) => {
+        const active = stageName === name;
+        element.hidden = !active;
+        element.classList.toggle('support-stage--active', active);
+      });
+      if (name === 'audience') {
+        stepLabel.textContent = 'Step 1 of 2';
+        progress.style.width = '50%';
+      } else if (name === 'issue') {
+        stepLabel.textContent = 'Step 2 of 2';
+        progress.style.width = '100%';
+      } else {
+        stepLabel.textContent = 'Your recommendation';
+        progress.style.width = '100%';
+      }
+      refreshIcons();
+    }
+
+    function renderIssues() {
+      issueOptions.replaceChildren();
+      recommendations[selectedAudience].forEach((item) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'support-issue';
+        button.textContent = item.label;
+        button.addEventListener('click', () => showRecommendation(item));
+        issueOptions.appendChild(button);
       });
     }
 
-    function renderStep3Plans() {
-      const profile = getSelectedProfile();
-      const plans = plansDatabase[profile];
-      const bizSelector = document.getElementById('business-plan-selector');
-
-      if (!planDisplayName || !estimatePlanTitle || !estimateDescText || !planNotSure || !scaleSelectorContainer) return;
-
-      // Helper: mark a plan checked by id and mirror it into the estimate box
-      function selectPlanById(id) {
-        const sel = plans.find(p => p.id === id) || plans[0];
-        plans.forEach(p => { p.checked = (p.id === sel.id); });
-        planDisplayName.textContent = sel.name;
-        estimatePlanTitle.textContent = sel.name;
-        estimateDescText.textContent = sel.desc;
-        if (estimateBoxLabel) {
-          estimateBoxLabel.textContent = profile === 'business' ? 'Recommended Plan' : 'Selected Plan';
-        }
-      }
-
-      // Helper: mark the last ("not sure") plan and show the custom-assessment copy
-      function selectNotSure() {
-        const notSureIndex = plans.length - 1;
-        plans.forEach((p, idx) => { p.checked = (idx === notSureIndex); });
-        const notSurePlan = plans[notSureIndex];
-        planDisplayName.textContent = "Let's discuss!";
-        estimatePlanTitle.textContent = notSurePlan ? notSurePlan.name : "Custom IT Assessment";
-        estimateDescText.textContent = notSurePlan ? notSurePlan.desc : "We will assess your needs and recommend the best plan for you during our free consultation.";
-        if (estimateBoxLabel) {
-          estimateBoxLabel.textContent = 'Custom Assessment';
-        }
-      }
-
-      if (profile === 'business') {
-        // Business: team-size gate, then Standard/Premium choice for larger teams.
-        if (scaleSelectorContainer) scaleSelectorContainer.style.display = 'none';
-        if (!bizSelector) return;
-        bizSelector.style.display = 'block';
-
-        const tierChoice = document.getElementById('biz-tier-choice');
-        const sizeRadios = bizSelector.querySelectorAll('input[name="biz_size"]');
-        const tierRadios = bizSelector.querySelectorAll('input[name="biz_tier"]');
-
-        function applyBusinessSelection() {
-          const sizeInput = bizSelector.querySelector('input[name="biz_size"]:checked');
-          const sizeVal = sizeInput ? sizeInput.value : 'large';
-          if (sizeVal === 'small') {
-            // 1-3 employees → Starter, hide the tier choice
-            if (tierChoice) tierChoice.style.display = 'none';
-            selectPlanById('starter');
-          } else {
-            // 4+ employees → let them choose Standard or Premium
-            if (tierChoice) tierChoice.style.display = 'block';
-            const tierInput = bizSelector.querySelector('input[name="biz_tier"]:checked');
-            selectPlanById(tierInput ? tierInput.value : 'standard');
-          }
-        }
-
-        function syncNotSureState() {
-          if (planNotSure.checked) {
-            bizSelector.style.opacity = '0.35';
-            bizSelector.style.pointerEvents = 'none';
-            selectNotSure();
-          } else {
-            bizSelector.style.opacity = '1';
-            bizSelector.style.pointerEvents = 'auto';
-            applyBusinessSelection();
-          }
-        }
-
-        sizeRadios.forEach(r => { r.onchange = applyBusinessSelection; });
-        tierRadios.forEach(r => { r.onchange = applyBusinessSelection; });
-        planNotSure.onchange = syncNotSureState;
-
-        planNotSure.checked = false;
-        syncNotSureState();
-        return;
-      }
-
-      // Home: original slider behaviour (Personal / Family / Family Plus).
-      if (bizSelector) bizSelector.style.display = 'none';
-      if (!scaleRange || !sliderLabels) return;
-      scaleSelectorContainer.style.display = 'block';
-      scaleRange.min = '1';
-      scaleRange.max = '3';
-      scaleRange.value = '1'; // Default to Personal
-      sliderLabels.innerHTML = '<span>Personal (1)</span><span>Family (2-3)</span><span>Family Plus (4+)</span>';
-
-      function updatePlanFromSlider() {
-        const val = parseInt(scaleRange.value) - 1;
-        const selectedPlan = plans[val];
-        if (selectedPlan) {
-          plans.forEach((p, idx) => { p.checked = (idx === val); });
-          planDisplayName.textContent = selectedPlan.name;
-          estimatePlanTitle.textContent = selectedPlan.name;
-          estimateDescText.textContent = selectedPlan.desc;
-          if (estimateBoxLabel) estimateBoxLabel.textContent = 'Selected Plan';
-        }
-      }
-
-      function syncNotSureState() {
-        if (planNotSure.checked) {
-          scaleSelectorContainer.style.opacity = '0.35';
-          scaleSelectorContainer.style.pointerEvents = 'none';
-          selectNotSure();
-        } else {
-          scaleSelectorContainer.style.opacity = '1';
-          scaleSelectorContainer.style.pointerEvents = 'auto';
-          updatePlanFromSlider();
-        }
-      }
-
-      scaleRange.oninput = updatePlanFromSlider;
-      planNotSure.onchange = syncNotSureState;
-
-      planNotSure.checked = false;
-      syncNotSureState();
+    function showRecommendation(item) {
+      selectedIssue = item;
+      resultTitle.textContent = item.title;
+      resultCopy.textContent = item.copy;
+      resultLink.href = item.href;
+      resultLink.innerHTML = `${item.cta} <i data-lucide="arrow-right" aria-hidden="true"></i>`;
+      showSupportStage('result');
     }
 
-    function showStep(step) {
-      plannerEl.querySelectorAll('.config-step').forEach(el => {
-        el.classList.remove('active');
-      });
-      
-      const nextStepEl = plannerEl.querySelector(`.config-step[data-step="${step}"]`);
-      if (nextStepEl) {
-        nextStepEl.classList.add('active');
-      }
-      
-      currentStep = step;
-      stepNumEl.textContent = currentStep;
-      
-      const percent = (currentStep / 4) * 100;
-      progressFill.style.width = `${percent}%`;
-      
-      prevBtn.disabled = currentStep === 1;
-      
-      if (currentStep === 4) {
-        const profile = getSelectedProfile();
-        if (profile === 'business') {
-          if (step4Title) step4Title.textContent = "Let's review your custom IT plan!";
-          if (step4Subtitle) step4Subtitle.textContent = "Provide your contact info to receive an official proposal and schedule your free strategy call.";
-          nextBtn.innerHTML = 'Request Callback <i data-lucide="send"></i>';
-        } else {
-          if (step4Title) step4Title.textContent = "Let's get your tech sorted!";
-          if (step4Subtitle) step4Subtitle.textContent = "Enter your details below. A friendly technician will contact you within 2 hours to help sort your tech.";
-          nextBtn.innerHTML = 'Get Help Now <i data-lucide="zap"></i>';
-        }
-      } else {
-        nextBtn.innerHTML = 'Continue <i data-lucide="arrow-right"></i>';
-      }
-      
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    }
-
-    nextBtn.addEventListener('click', (e) => {
-      if (currentStep < 4) {
-        if (currentStep === 1) {
-          renderStep2Options();
-        } else if (currentStep === 2) {
-          renderStep3Plans();
-        }
-        showStep(currentStep + 1);
-      } else {
-        const nameInput = document.getElementById('config-name');
-        const emailInput = document.getElementById('config-email');
-        const phoneInput = document.getElementById('config-phone');
-        
-        let valid = true;
-        
-        [nameInput, emailInput, phoneInput].forEach(inp => {
-          if (!inp.value.trim() || (inp.type === 'email' && !inp.validity.valid)) {
-            inp.classList.add('invalid');
-            const err = inp.closest('.form-group')?.querySelector('.field-error');
-            if (err) err.textContent = inp.type === 'email' ? 'Please enter a valid email address.' : 'This field is required.';
-            valid = false;
-          } else {
-            inp.classList.remove('invalid');
-            const err = inp.closest('.form-group')?.querySelector('.field-error');
-            if (err) err.textContent = '';
-          }
-        });
-        
-        if (!valid) return;
-        
-        nextBtn.disabled = true;
-        nextBtn.textContent = 'Sending...';
-        
-        const profile = getSelectedProfile();
-        const checkedServices = serviceDatabase[profile]
-          .filter(opt => opt.checked)
-          .map(opt => opt.label)
-          .join(', ');
-        
-        const selectedPlanObj = plansDatabase[profile].find(p => p.checked) || plansDatabase[profile][0];
-        const selectedPlanName = selectedPlanObj ? selectedPlanObj.name : 'None selected';
-        
-        const messageBody = `
-Interactive Solution Configurator Lead:
-------------------------------------------
-Profile Type: ${profile.toUpperCase()}
-Requested Cover Level / Plan: ${selectedPlanName}
-Selected Services: ${checkedServices || 'None selected'}
-
-Contact Information:
-Name: ${nameInput.value}
-Email: ${emailInput.value}
-Phone: ${phoneInput.value}
-        `;
-        
-        const formData = new FormData();
-        formData.append('access_key', '2a16637d-d967-4413-9f4f-a87205271ec3');
-        formData.append('subject', `New Interactive IT Lead [${profile.toUpperCase()}] – OS Technology`);
-        formData.append('name', nameInput.value);
-        formData.append('email', emailInput.value);
-        formData.append('phone', phoneInput.value);
-        formData.append('message', messageBody);
-        
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: formData
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.success) {
-              const currentProfile = getSelectedProfile();
-              if (currentProfile === 'business') {
-                if (successTitle) successTitle.textContent = "Request Received!";
-                if (successDesc) successDesc.textContent = "Thank you! We have received your custom plan preferences. We will be in touch ASAP!";
-              } else {
-                if (successTitle) successTitle.textContent = "Request Received!";
-                if (successDesc) successDesc.textContent = "Thank you! We have received your request. We will be in touch ASAP!";
-              }
-              successOverlay.style.display = 'flex';
-              gtagSendEvent();
-              configForm.reset();
-              // Reset databases
-              serviceDatabase.business.forEach(s => s.checked = (s.id === 'm365' || s.id === 'helpdesk'));
-              serviceDatabase.home.forEach(s => s.checked = (s.id === 'monitoring' || s.id === 'support' || s.id === 'security_home'));
-              plansDatabase.business.forEach(p => p.checked = (p.id === 'standard'));
-              plansDatabase.home.forEach((p, idx) => p.checked = (idx === 0));
-            } else {
-              alert('Something went wrong. Please check your network and try again, or use the direct contact form below.');
-            }
-          })
-          .catch(() => {
-            alert('Something went wrong. Please check your network and try again, or use the direct contact form below.');
-          })
-          .finally(() => {
-            nextBtn.disabled = false;
-            const currentProfile = getSelectedProfile();
-            if (currentProfile === 'business') {
-              nextBtn.innerHTML = 'Request Callback <i data-lucide="send"></i>';
-            } else {
-              nextBtn.innerHTML = 'Get Help Now <i data-lucide="zap"></i>';
-            }
-          });
-      }
-    });
-
-    prevBtn.addEventListener('click', () => {
-      if (currentStep > 1) {
-        showStep(currentStep - 1);
-      }
-    });
-
-    resetBtn.addEventListener('click', () => {
-      successOverlay.style.display = 'none';
-      currentStep = 1;
-      showStep(1);
-    });
-
-    const profileRadios = configForm.querySelectorAll('input[name="profile_type"]');
-    profileRadios.forEach(radio => {
+    supportFinder.querySelectorAll('input[name="support-audience"]').forEach((radio) => {
       radio.addEventListener('change', () => {
-        configForm.querySelectorAll('input').forEach(inp => inp.classList.remove('invalid'));
+        selectedAudience = radio.value;
+        renderIssues();
+        showSupportStage('issue');
       });
+    });
+
+    backButton.addEventListener('click', () => {
+      selectedAudience = '';
+      supportFinder.querySelectorAll('input[name="support-audience"]').forEach((radio) => { radio.checked = false; });
+      showSupportStage('audience');
+    });
+    restartButton.addEventListener('click', () => {
+      selectedAudience = '';
+      selectedIssue = null;
+      supportFinder.querySelectorAll('input[name="support-audience"]').forEach((radio) => { radio.checked = false; });
+      showSupportStage('audience');
+    });
+
+    function prefillContactForm() {
+      if (!selectedIssue) return;
+      const serviceSelect = document.getElementById('service');
+      const messageInput = document.getElementById('message');
+      if (serviceSelect) serviceSelect.value = selectedIssue.formService;
+      if (messageInput && !messageInput.value.trim()) messageInput.value = selectedIssue.message;
+    }
+
+    contactLink.addEventListener('click', prefillContactForm);
+    resultLink.addEventListener('click', () => {
+      if (selectedIssue && selectedIssue.href === '#contact') prefillContactForm();
     });
   }
 

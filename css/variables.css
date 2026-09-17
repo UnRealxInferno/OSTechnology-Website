@@ -3,18 +3,18 @@
    ============================================================ */
 :root {
   /* ---- Dark theme (default) ---- */
-  --clr-bg:        #0b0f19;
-  --clr-surface:   #111827;
-  --clr-surface2:  #1f2937;
-  --clr-border:    #1f2937;
-  --clr-accent:    #f97316;
-  --clr-accent-dk: #ea6c0a;
+  --clr-bg:        #08111f;
+  --clr-surface:   #0f1a2a;
+  --clr-surface2:  #172438;
+  --clr-border:    #26364b;
+  --clr-accent:    #ff7a1a;
+  --clr-accent-dk: #e9670c;
   --clr-accent-glow: rgba(249, 115, 22, 0.18);
   --clr-badge-bg:    rgba(249, 115, 22, 0.08);
   --clr-badge-border: rgba(249, 115, 22, 0.25);
   --clr-success:   #10b981;
-  --clr-text:      #f3f4f6;
-  --clr-text-muted:#b0b8c4; /* bumped from #9ca3af for WCAG AA on small text */
+  --clr-text:      #eaf0f7;
+  --clr-text-muted:#a8b5c5;
   --clr-white:     #ffffff;
 
   --clr-error:       #ef4444;
@@ -30,15 +30,15 @@
   --clr-overlay-border: rgba(255, 255, 255, 0.2);
   --clr-grid-line:      rgba(255, 255, 255, 0.03);
   --clr-grid-line-soft: rgba(255, 255, 255, 0.02);
-  --clr-header-bg:      rgba(11, 15, 25, 0.96);
-  --shadow-lift:        0 16px 48px rgba(0, 0, 0, 0.45);
+  --clr-header-bg:      rgba(8, 17, 31, 0.88);
+  --shadow-lift:        0 24px 64px rgba(0, 0, 0, 0.34);
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  --radius-sm: 6px;
+  --radius-sm: 7px;
   --radius-md: 12px;
-  --radius-lg: 18px;
+  --radius-lg: 16px;
 
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.15);
   --shadow-glow: 0 0 20px rgba(249, 115, 22, 0.15);
@@ -53,20 +53,20 @@
    device prefers light and the user hasn't explicitly chosen dark.
    ============================================================ */
 :root[data-theme="light"] {
-  --clr-bg:        #f4f5f7;
+  --clr-bg:        #f5f7fa;
   --clr-surface:   #ffffff;
-  --clr-surface2:  #e9ebed;
-  --clr-border:    #e2e8f0;
-  --clr-text:      #0f172a;
-  --clr-text-muted:#475569;
-  --clr-white:     #0f172a;
+  --clr-surface2:  #eef2f6;
+  --clr-border:    #dce3eb;
+  --clr-text:      #172033;
+  --clr-text-muted:#58677a;
+  --clr-white:     #111827;
 
   --clr-overlay-hover:  rgba(15, 23, 42, 0.04);
   --clr-overlay-border: rgba(15, 23, 42, 0.15);
   --clr-grid-line:      rgba(15, 23, 42, 0.04);
   --clr-grid-line-soft: rgba(15, 23, 42, 0.025);
-  --clr-header-bg:      rgba(244, 245, 247, 0.96);
-  --shadow-lift:        0 16px 48px rgba(15, 23, 42, 0.08);
+  --clr-header-bg:      rgba(245, 247, 250, 0.9);
+  --shadow-lift:        0 24px 64px rgba(15, 23, 42, 0.1);
 
   --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.05);
   --shadow-glow: none;
@@ -74,20 +74,20 @@
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --clr-bg:        #f4f5f7;
+    --clr-bg:        #f5f7fa;
     --clr-surface:   #ffffff;
-    --clr-surface2:  #e9ebed;
-    --clr-border:    #e2e8f0;
-    --clr-text:      #0f172a;
-    --clr-text-muted:#475569;
-    --clr-white:     #0f172a;
+    --clr-surface2:  #eef2f6;
+    --clr-border:    #dce3eb;
+    --clr-text:      #172033;
+    --clr-text-muted:#58677a;
+    --clr-white:     #111827;
 
     --clr-overlay-hover:  rgba(15, 23, 42, 0.04);
     --clr-overlay-border: rgba(15, 23, 42, 0.15);
     --clr-grid-line:      rgba(15, 23, 42, 0.04);
     --clr-grid-line-soft: rgba(15, 23, 42, 0.025);
-    --clr-header-bg:      rgba(244, 245, 247, 0.96);
-    --shadow-lift:        0 16px 48px rgba(15, 23, 42, 0.08);
+    --clr-header-bg:      rgba(245, 247, 250, 0.9);
+    --shadow-lift:        0 24px 64px rgba(15, 23, 42, 0.1);
 
     --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.05);
     --shadow-glow: none;
