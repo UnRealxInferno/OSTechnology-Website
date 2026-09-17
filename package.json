@@ -4,6 +4,6 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "preview": "npx serve dist"
+    "preview": "npm run build && python -m http.server 4173 -d dist"
   }
 }
