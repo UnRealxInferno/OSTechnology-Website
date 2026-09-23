@@ -28,3 +28,7 @@ body{overflow-x:clip}.home-hero>*{min-width:0}.hero-copy h1,.editorial-hero h1,.
 @media(max-width:650px){.route-hero{padding-top:2.5rem;padding-bottom:3rem}.legacy-content>.section,.legacy-content>section{padding-top:2.75rem;padding-bottom:2.75rem}}
 
 :root[data-theme="dark"] .legacy-content p,:root[data-theme="dark"] .legacy-content li{color:var(--muted)}
+
+/* Keep action text distinct from the orange surfaces behind it. */
+.legacy-content a.button-primary{color:#101114!important}
+.contact-band .eyebrow{color:#101114}
